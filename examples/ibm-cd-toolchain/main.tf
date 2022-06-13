@@ -3,7 +3,7 @@ provider "ibm" {
 }
 
 // Provision cd_toolchain_tool_sonarqube resource instance
-resource "ibm_cd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube_instance" {
+resource "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube_instance" {
   toolchain_id = var.cd_toolchain_tool_sonarqube_toolchain_id
   name = var.cd_toolchain_tool_sonarqube_name
   parameters {
@@ -16,7 +16,7 @@ resource "ibm_cd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube_instance
 }
 
 // Create cd_toolchain_tool_sonarqube data source
-data "ibm_cd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube_instance" {
+data "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube_instance" {
   toolchain_id = var.cd_toolchain_tool_sonarqube_toolchain_id
   tool_id = var.cd_toolchain_tool_sonarqube_tool_id
 }

@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolKeyprotectBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolKeyprotectConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolKeyprotectExists("ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolKeyprotectExists("ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolKeyprotectAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolKeyprotectConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolKeyprotectExists("ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "name", name),
+					testAccCheckIBMCdToolchainToolKeyprotectExists("ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolKeyprotectConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect",
+				ResourceName:      "ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolKeyprotectAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolKeyprotectConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
+		resource "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolKeyprotectConfigBasic(toolchainID string) str
 func testAccCheckIBMCdToolchainToolKeyprotectConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
+		resource "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -137,7 +137,7 @@ func testAccCheckIBMCdToolchainToolKeyprotectDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_keyprotect" {
+		if rs.Type != "ibmcd_toolchain_tool_keyprotect" {
 			continue
 		}
 

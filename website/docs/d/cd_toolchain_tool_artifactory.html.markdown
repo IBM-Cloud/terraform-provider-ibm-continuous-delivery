@@ -1,21 +1,21 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_artifactory"
+page_title: "IBM : ibmcd_toolchain_tool_artifactory"
 description: |-
   Get information about cd_toolchain_tool_artifactory
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_artifactory
+# ibmcd_toolchain_tool_artifactory
 
 Provides a read-only data source for cd_toolchain_tool_artifactory. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
+data "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
 	tool_id = "tool_id"
-	toolchain_id = ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.toolchain_id
+	toolchain_id = ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.toolchain_id
 }
 ```
 

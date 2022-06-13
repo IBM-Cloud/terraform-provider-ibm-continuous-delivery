@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolSonarqubeDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSonarqubeDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolSonarqubeDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSonarqubeDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolSonarqubeDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolSonarqubeDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
+		resource "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
-			toolchain_id = ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube.toolchain_id
+		data "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
+			toolchain_id = ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolSonarqubeDataSourceConfigBasic(getToolByIDRes
 
 func testAccCheckIBMCdToolchainToolSonarqubeDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
+		resource "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -98,8 +98,8 @@ func testAccCheckIBMCdToolchainToolSonarqubeDataSourceConfig(getToolByIDResponse
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
-			toolchain_id = ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube.toolchain_id
+		data "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
+			toolchain_id = ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

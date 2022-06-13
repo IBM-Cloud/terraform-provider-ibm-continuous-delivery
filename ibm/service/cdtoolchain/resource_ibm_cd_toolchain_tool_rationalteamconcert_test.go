@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolRationalteamconcertBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolRationalteamconcertConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolRationalteamconcertExists("ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolRationalteamconcertExists("ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolRationalteamconcertAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolRationalteamconcertConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolRationalteamconcertExists("ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "name", name),
+					testAccCheckIBMCdToolchainToolRationalteamconcertExists("ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolRationalteamconcertConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert",
+				ResourceName:      "ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolRationalteamconcertAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolRationalteamconcertConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
+		resource "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolRationalteamconcertConfigBasic(toolchainID st
 func testAccCheckIBMCdToolchainToolRationalteamconcertConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
+		resource "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -139,7 +139,7 @@ func testAccCheckIBMCdToolchainToolRationalteamconcertDestroy(s *terraform.State
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_rationalteamconcert" {
+		if rs.Type != "ibmcd_toolchain_tool_rationalteamconcert" {
 			continue
 		}
 

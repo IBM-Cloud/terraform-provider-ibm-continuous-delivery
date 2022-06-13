@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolBitbucketgitBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolBitbucketgitConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolBitbucketgitExists("ibm_cd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolBitbucketgitExists("ibmcd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolBitbucketgitAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolBitbucketgitConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolBitbucketgitExists("ibm_cd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", "name", name),
+					testAccCheckIBMCdToolchainToolBitbucketgitExists("ibmcd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolBitbucketgitConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit",
+				ResourceName:      "ibmcd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolBitbucketgitAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolBitbucketgitConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_bitbucketgit" "cd_toolchain_tool_bitbucketgit" {
+		resource "ibmcd_toolchain_tool_bitbucketgit" "cd_toolchain_tool_bitbucketgit" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolBitbucketgitConfigBasic(toolchainID string) s
 func testAccCheckIBMCdToolchainToolBitbucketgitConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_bitbucketgit" "cd_toolchain_tool_bitbucketgit" {
+		resource "ibmcd_toolchain_tool_bitbucketgit" "cd_toolchain_tool_bitbucketgit" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -159,7 +159,7 @@ func testAccCheckIBMCdToolchainToolBitbucketgitDestroy(s *terraform.State) error
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_bitbucketgit" {
+		if rs.Type != "ibmcd_toolchain_tool_bitbucketgit" {
 			continue
 		}
 

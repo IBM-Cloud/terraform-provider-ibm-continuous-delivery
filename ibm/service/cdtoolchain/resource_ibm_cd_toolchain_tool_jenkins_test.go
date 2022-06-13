@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolJenkinsBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolJenkinsConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolJenkinsExists("ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolJenkinsExists("ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolJenkinsAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolJenkinsConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolJenkinsExists("ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "name", name),
+					testAccCheckIBMCdToolchainToolJenkinsExists("ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolJenkinsConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins",
+				ResourceName:      "ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolJenkinsAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolJenkinsConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
+		resource "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolJenkinsConfigBasic(toolchainID string) string
 func testAccCheckIBMCdToolchainToolJenkinsConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
+		resource "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -137,7 +137,7 @@ func testAccCheckIBMCdToolchainToolJenkinsDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_jenkins" {
+		if rs.Type != "ibmcd_toolchain_tool_jenkins" {
 			continue
 		}
 

@@ -1,21 +1,21 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_tekton_pipeline_definition"
+page_title: "IBM : ibmcd_tekton_pipeline_definition"
 description: |-
   Get information about tekton_pipeline_definition
 subcategory: "CD Tekton Pipeline"
 ---
 
-# ibm_cd_tekton_pipeline_definition
+# ibmcd_tekton_pipeline_definition
 
 Provides a read-only data source for tekton_pipeline_definition. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_tekton_pipeline_definition" "tekton_pipeline_definition" {
-	definition_id = ibm_cd_tekton_pipeline_definition.tekton_pipeline_definition.definition_id
-	pipeline_id = ibm_cd_tekton_pipeline_definition.tekton_pipeline_definition.pipeline_id
+data "ibmcd_tekton_pipeline_definition" "tekton_pipeline_definition" {
+	definition_id = ibmcd_tekton_pipeline_definition.tekton_pipeline_definition.definition_id
+	pipeline_id = ibmcd_tekton_pipeline_definition.tekton_pipeline_definition.pipeline_id
 }
 ```
 

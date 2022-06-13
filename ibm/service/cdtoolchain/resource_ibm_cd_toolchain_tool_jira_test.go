@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolJiraBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolJiraConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolJiraExists("ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolJiraExists("ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolJiraAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolJiraConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolJiraExists("ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "name", name),
+					testAccCheckIBMCdToolchainToolJiraExists("ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolJiraConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira",
+				ResourceName:      "ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolJiraAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolJiraConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
+		resource "ibmcd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolJiraConfigBasic(toolchainID string) string {
 func testAccCheckIBMCdToolchainToolJiraConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
+		resource "ibmcd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -140,7 +140,7 @@ func testAccCheckIBMCdToolchainToolJiraDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_jira" {
+		if rs.Type != "ibmcd_toolchain_tool_jira" {
 			continue
 		}
 

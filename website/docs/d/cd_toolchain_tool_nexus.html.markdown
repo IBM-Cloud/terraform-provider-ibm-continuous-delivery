@@ -1,21 +1,21 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_nexus"
+page_title: "IBM : ibmcd_toolchain_tool_nexus"
 description: |-
   Get information about cd_toolchain_tool_nexus
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_nexus
+# ibmcd_toolchain_tool_nexus
 
 Provides a read-only data source for cd_toolchain_tool_nexus. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
+data "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
 	tool_id = "tool_id"
-	toolchain_id = ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus.toolchain_id
+	toolchain_id = ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus.toolchain_id
 }
 ```
 

@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolCustomDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolCustomDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolCustomDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolCustomDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolCustomDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolCustomDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
+		resource "ibmcd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
-			toolchain_id = ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom.toolchain_id
+		data "ibmcd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
+			toolchain_id = ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolCustomDataSourceConfigBasic(getToolByIDRespon
 
 func testAccCheckIBMCdToolchainToolCustomDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
+		resource "ibmcd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -101,8 +101,8 @@ func testAccCheckIBMCdToolchainToolCustomDataSourceConfig(getToolByIDResponseToo
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
-			toolchain_id = ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom.toolchain_id
+		data "ibmcd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
+			toolchain_id = ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_githubconsolidated"
+page_title: "IBM : ibmcd_toolchain_tool_githubconsolidated"
 description: |-
   Get information about cd_toolchain_tool_githubconsolidated
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_githubconsolidated
+# ibmcd_toolchain_tool_githubconsolidated
 
 Provides a read-only data source for cd_toolchain_tool_githubconsolidated. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_githubconsolidated" "cd_toolchain_tool_githubconsolidated" {
+data "ibmcd_toolchain_tool_githubconsolidated" "cd_toolchain_tool_githubconsolidated" {
 	tool_id = "tool_id"
 	toolchain_id = "toolchain_id"
 }

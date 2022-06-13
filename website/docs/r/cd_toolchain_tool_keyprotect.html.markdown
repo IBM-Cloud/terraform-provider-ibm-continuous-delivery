@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_keyprotect"
+page_title: "IBM : ibmcd_toolchain_tool_keyprotect"
 description: |-
   Manages cd_toolchain_tool_keyprotect.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_keyprotect
+# ibmcd_toolchain_tool_keyprotect
 
 Provides a resource for cd_toolchain_tool_keyprotect. This allows cd_toolchain_tool_keyprotect to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
+resource "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
   parameters {
 		name = "name"
 		region = "region"
@@ -112,7 +112,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_keyprotect` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_keyprotect` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -123,5 +123,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect <toolchain_id>/<tool_id>
 ```

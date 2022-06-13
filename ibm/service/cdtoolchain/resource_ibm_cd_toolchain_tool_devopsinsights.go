@@ -30,13 +30,13 @@ func ResourceIBMCdToolchainToolDevopsinsights() *schema.Resource {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
-				ValidateFunc: validate.InvokeValidator("ibm_cd_toolchain_tool_devopsinsights", "toolchain_id"),
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_devopsinsights", "toolchain_id"),
 				Description:  "ID of the toolchain to bind tool to.",
 			},
 			"name": &schema.Schema{
 				Type:         schema.TypeString,
 				Optional:     true,
-				ValidateFunc: validate.InvokeValidator("ibm_cd_toolchain_tool_devopsinsights", "name"),
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_devopsinsights", "name"),
 				Description:  "Name of tool.",
 			},
 			"resource_group_id": &schema.Schema{
@@ -120,7 +120,7 @@ func ResourceIBMCdToolchainToolDevopsinsightsValidator() *validate.ResourceValid
 		},
 	)
 
-	resourceValidator := validate.ResourceValidator{ResourceName: "ibm_cd_toolchain_tool_devopsinsights", Schema: validateSchema}
+	resourceValidator := validate.ResourceValidator{ResourceName: "ibmcd_toolchain_tool_devopsinsights", Schema: validateSchema}
 	return &resourceValidator
 }
 

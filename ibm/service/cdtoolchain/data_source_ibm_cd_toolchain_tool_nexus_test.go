@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolNexusDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolNexusDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolNexusDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolNexusDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolNexusDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolNexusDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
+		resource "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
-			toolchain_id = ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus.toolchain_id
+		data "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
+			toolchain_id = ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolNexusDataSourceConfigBasic(getToolByIDRespons
 
 func testAccCheckIBMCdToolchainToolNexusDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
+		resource "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -101,8 +101,8 @@ func testAccCheckIBMCdToolchainToolNexusDataSourceConfig(getToolByIDResponseTool
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
-			toolchain_id = ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus.toolchain_id
+		data "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
+			toolchain_id = ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

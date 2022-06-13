@@ -27,9 +27,7 @@ import (
 	"github.com/IBM/ibm-cos-sdk-go-config/resourceconfigurationv1"
 	"github.com/IBM/ibm-cos-sdk-go/service/s3"
 	kp "github.com/IBM/keyprotect-go-client"
-	"github.com/IBM/platform-services-go-sdk/globaltaggingv1"
 	"github.com/IBM/platform-services-go-sdk/iampolicymanagementv1"
-	rg "github.com/IBM/platform-services-go-sdk/resourcemanagerv2"
 	"github.com/apache/openwhisk-client-go/whisk"
 	"github.com/go-openapi/strfmt"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -1462,18 +1460,6 @@ func FlattenAccessGroupMembers(list []iamaccessgroupsv2.ListGroupMembersResponse
 	return result
 }
 
-func FlattenUserIds(accountID string, users []string, meta interface{}) ([]string, error) {
-	userids := make([]string, len(users))
-	for i, name := range users {
-		iamID, err := GetIBMUniqueId(accountID, name, meta)
-		if err != nil {
-			return nil, err
-		}
-		userids[i] = iamID
-	}
-	return userids, nil
-}
-
 func ExpandUsers(userList *schema.Set) (users []icdv4.User) {
 	for _, iface := range userList.List() {
 		userEl := iface.(map[string]interface{})
@@ -1798,43 +1784,6 @@ func IndexOf(element string, data []string) int {
 	return -1 //not found.
 }
 
-func rcInstanceExists(resourceId string, resourceType string, meta interface{}) (bool, error) {
-	// Check to see if Resource Manager instance exists
-	rsConClient, err := meta.(conns.ClientSession).ResourceControllerAPI()
-	if err != nil {
-		return true, nil
-	}
-	exists := true
-	instance, err := rsConClient.ResourceServiceInstance().GetInstance(resourceId)
-	if err != nil {
-		if strings.Contains(err.Error(), "Object not found") ||
-			strings.Contains(err.Error(), "status code: 404") {
-			exists = false
-		} else {
-			return true, fmt.Errorf("[ERROR] Error checking resource instance exists: %s", err)
-		}
-	} else {
-		if strings.Contains(instance.State, "removed") {
-			exists = false
-		}
-	}
-	if exists {
-		return true, nil
-	}
-	// Implement when pointer to terraform.State available
-	// If rcInstance is now in removed state, set TF state to removed
-	// s := *terraform.State
-	// for _, r := range s.RootModule().Resources {
-	//  if r.Type != resourceType {
-	//      continue
-	//  }
-	//  if r.Primary.ID == resourceId {
-	//      r.Primary.Set("status", "removed")
-	//  }
-	// }
-	return false, nil
-}
-
 // Implement when pointer to terraform.State available
 // func resourceInstanceExistsTf(resourceId string, resourceType string) bool {
 //  // Check TF state to see if Cloud resource instance has already been removed
@@ -1868,24 +1817,6 @@ func GetLocation(instance models.ServiceInstanceV2) string {
 	} else {
 		return cName + "-" + region
 	}
-}
-
-func GetTags(d *schema.ResourceData, meta interface{}) error {
-	resourceID := d.Id()
-	gtClient, err := meta.(conns.ClientSession).GlobalTaggingAPI()
-	if err != nil {
-		return fmt.Errorf("[ERROR] Error getting global tagging client settings: %s", err)
-	}
-	taggingResult, err := gtClient.Tags().GetTags(resourceID)
-	if err != nil {
-		return err
-	}
-	var taglist []string
-	for _, item := range taggingResult.Items {
-		taglist = append(taglist, item.Name)
-	}
-	d.Set("tags", FlattenStringList(taglist))
-	return nil
 }
 
 // func UpdateTags(d *schema.ResourceData, meta interface{}) error {
@@ -1935,138 +1866,6 @@ func GetTags(d *schema.ResourceData, meta interface{}) error {
 // 	return nil
 // }
 
-func GetGlobalTagsUsingCRN(meta interface{}, resourceID, resourceType, tagType string) (*schema.Set, error) {
-
-	gtClient, err := meta.(conns.ClientSession).GlobalTaggingAPIv1()
-	if err != nil {
-		return nil, fmt.Errorf("[ERROR] Error getting global tagging client settings: %s", err)
-	}
-
-	userDetails, err := meta.(conns.ClientSession).BluemixUserDetails()
-	if err != nil {
-		return nil, err
-	}
-	accountID := userDetails.UserAccount
-
-	var providers []string
-	if strings.Contains(resourceType, "SoftLayer_") {
-		providers = []string{"ims"}
-	}
-
-	ListTagsOptions := &globaltaggingv1.ListTagsOptions{}
-	if resourceID != "" {
-		ListTagsOptions.AttachedTo = &resourceID
-	}
-	ListTagsOptions.Providers = providers
-	if len(tagType) > 0 {
-		ListTagsOptions.TagType = PtrToString(tagType)
-
-		if tagType == "service" {
-			ListTagsOptions.AccountID = PtrToString(accountID)
-		}
-	}
-	taggingResult, _, err := gtClient.ListTags(ListTagsOptions)
-	if err != nil {
-		return nil, err
-	}
-	var taglist []string
-	for _, item := range taggingResult.Items {
-		taglist = append(taglist, *item.Name)
-	}
-	log.Println("tagList: ", taglist)
-	return NewStringSet(ResourceIBMVPCHash, taglist), nil
-}
-
-func UpdateGlobalTagsUsingCRN(oldList, newList interface{}, meta interface{}, resourceID, resourceType, tagType string) error {
-	gtClient, err := meta.(conns.ClientSession).GlobalTaggingAPIv1()
-	if err != nil {
-		return fmt.Errorf("[ERROR] Error getting global tagging client settings: %s", err)
-	}
-
-	userDetails, err := meta.(conns.ClientSession).BluemixUserDetails()
-	if err != nil {
-		return err
-	}
-	acctID := userDetails.UserAccount
-
-	resources := []globaltaggingv1.Resource{}
-	r := globaltaggingv1.Resource{ResourceID: PtrToString(resourceID), ResourceType: PtrToString(resourceType)}
-	resources = append(resources, r)
-
-	if oldList == nil {
-		oldList = new(schema.Set)
-	}
-	if newList == nil {
-		newList = new(schema.Set)
-	}
-	olds := oldList.(*schema.Set)
-	news := newList.(*schema.Set)
-	removeInt := olds.Difference(news).List()
-	addInt := news.Difference(olds).List()
-	add := make([]string, len(addInt))
-	for i, v := range addInt {
-		add[i] = fmt.Sprint(v)
-	}
-	remove := make([]string, len(removeInt))
-	for i, v := range removeInt {
-		remove[i] = fmt.Sprint(v)
-	}
-
-	if strings.TrimSpace(tagType) == "" || tagType == "user" {
-		schematicTags := os.Getenv("IC_ENV_TAGS")
-		var envTags []string
-		if schematicTags != "" {
-			envTags = strings.Split(schematicTags, ",")
-			add = append(add, envTags...)
-		}
-	}
-
-	if len(remove) > 0 {
-		detachTagOptions := &globaltaggingv1.DetachTagOptions{}
-		detachTagOptions.Resources = resources
-		detachTagOptions.TagNames = remove
-		if len(tagType) > 0 {
-			detachTagOptions.TagType = PtrToString(tagType)
-			if tagType == "service" {
-				detachTagOptions.AccountID = PtrToString(acctID)
-			}
-		}
-
-		_, resp, err := gtClient.DetachTag(detachTagOptions)
-		if err != nil {
-			return fmt.Errorf("[ERROR] Error detaching database tags %v: %s\n%s", remove, err, resp)
-		}
-		for _, v := range remove {
-			delTagOptions := &globaltaggingv1.DeleteTagOptions{
-				TagName: PtrToString(v),
-			}
-			_, resp, err := gtClient.DeleteTag(delTagOptions)
-			if err != nil {
-				return fmt.Errorf("[ERROR] Error deleting database tag %v: %s\n%s", v, err, resp)
-			}
-		}
-	}
-
-	if len(add) > 0 {
-		AttachTagOptions := &globaltaggingv1.AttachTagOptions{}
-		AttachTagOptions.Resources = resources
-		AttachTagOptions.TagNames = add
-		if len(tagType) > 0 {
-			AttachTagOptions.TagType = PtrToString(tagType)
-			if tagType == "service" {
-				AttachTagOptions.AccountID = PtrToString(acctID)
-			}
-		}
-
-		_, resp, err := gtClient.AttachTag(AttachTagOptions)
-		if err != nil {
-			return fmt.Errorf("[ERROR] Error updating database tags %v : %s\n%s", add, err, resp)
-		}
-	}
-
-	return nil
-}
-
 func ResourceIBMVPCHash(v interface{}) int {
 	var buf bytes.Buffer
 	buf.WriteString(fmt.Sprintf("%s",
@@ -2080,77 +1879,6 @@ func ApplyOnce(k, o, n string, d *schema.ResourceData) bool {
 		return false
 	}
 	return true
-}
-func GetTagsUsingCRN(meta interface{}, resourceCRN string) (*schema.Set, error) {
-
-	gtClient, err := meta.(conns.ClientSession).GlobalTaggingAPI()
-	if err != nil {
-		return nil, fmt.Errorf("[ERROR] Error getting global tagging client settings: %s", err)
-	}
-	taggingResult, err := gtClient.Tags().GetTags(resourceCRN)
-	if err != nil {
-		return nil, err
-	}
-	var taglist []string
-	for _, item := range taggingResult.Items {
-		taglist = append(taglist, item.Name)
-	}
-	log.Println("tagList: ", taglist)
-	return NewStringSet(ResourceIBMVPCHash, taglist), nil
-}
-
-func UpdateTagsUsingCRN(oldList, newList interface{}, meta interface{}, resourceCRN string) error {
-	gtClient, err := meta.(conns.ClientSession).GlobalTaggingAPI()
-	if err != nil {
-		return fmt.Errorf("[ERROR] Error getting global tagging client settings: %s", err)
-	}
-	if oldList == nil {
-		oldList = new(schema.Set)
-	}
-	if newList == nil {
-		newList = new(schema.Set)
-	}
-	olds := oldList.(*schema.Set)
-	news := newList.(*schema.Set)
-	removeInt := olds.Difference(news).List()
-	addInt := news.Difference(olds).List()
-	add := make([]string, len(addInt))
-	for i, v := range addInt {
-		add[i] = fmt.Sprint(v)
-	}
-	remove := make([]string, len(removeInt))
-	for i, v := range removeInt {
-		remove[i] = fmt.Sprint(v)
-	}
-
-	schematicTags := os.Getenv("IC_ENV_TAGS")
-	var envTags []string
-	if schematicTags != "" {
-		envTags = strings.Split(schematicTags, ",")
-		add = append(add, envTags...)
-	}
-
-	if len(remove) > 0 {
-		_, err := gtClient.Tags().DetachTags(resourceCRN, remove)
-		if err != nil {
-			return fmt.Errorf("[ERROR] Error detaching database tags %v: %s", remove, err)
-		}
-		for _, v := range remove {
-			_, err := gtClient.Tags().DeleteTag(v)
-			if err != nil {
-				return fmt.Errorf("[ERROR] Error deleting database tag %v: %s", v, err)
-			}
-		}
-	}
-
-	if len(add) > 0 {
-		_, err := gtClient.Tags().AttachTags(resourceCRN, add)
-		if err != nil {
-			return fmt.Errorf("[ERROR] Error updating database tags %v : %s", add, err)
-		}
-	}
-
-	return nil
 }
 
 func GetBaseController(meta interface{}) (string, error) {
@@ -2507,27 +2235,6 @@ func GetNextIAM(next interface{}) string {
 	return q.Get("pagetoken")
 }
 
-/* Return the default resource group */
-func DefaultResourceGroup(meta interface{}) (string, error) {
-
-	rMgtClient, err := meta.(conns.ClientSession).ResourceManagerV2API()
-	if err != nil {
-		return "", err
-	}
-	defaultGrp := true
-	resourceGroupList := rg.ListResourceGroupsOptions{
-		Default: &defaultGrp,
-	}
-	grpList, resp, err := rMgtClient.ListResourceGroups(&resourceGroupList)
-	if err != nil || grpList == nil || grpList.Resources == nil {
-		return "", fmt.Errorf("[ERROR] Error retrieving resource group: %s %s", err, resp)
-	}
-	if len(grpList.Resources) <= 0 {
-		return "", fmt.Errorf("[ERROR] The default resource group could not be found. Make sure you have required permissions to access the resource group")
-	}
-	return *grpList.Resources[0].ID, nil
-}
-
 func FlattenKeyPolicies(policies []kp.Policy) []map[string]interface{} {
 	policyMap := make([]map[string]interface{}, 0, 1)
 	rotationMap := make([]map[string]interface{}, 0, 1)
@@ -2807,182 +2514,6 @@ func MapRoleListToPolicyRoles(roleList iampolicymanagementv1.RoleList) []iampoli
 	return policyRoles
 }
 
-func GeneratePolicyOptions(d *schema.ResourceData, meta interface{}) (iampolicymanagementv1.CreatePolicyOptions, error) {
-
-	var serviceName string
-	var resourceType string
-	resourceAttributes := []iampolicymanagementv1.ResourceAttribute{}
-
-	if res, ok := d.GetOk("resources"); ok {
-		resources := res.([]interface{})
-		for _, resource := range resources {
-			r, _ := resource.(map[string]interface{})
-
-			if r, ok := r["service"]; ok && r != nil {
-				serviceName = r.(string)
-				if r.(string) != "" {
-					resourceAttr := iampolicymanagementv1.ResourceAttribute{
-						Name:     core.StringPtr("serviceName"),
-						Value:    core.StringPtr(r.(string)),
-						Operator: core.StringPtr("stringEquals"),
-					}
-					resourceAttributes = append(resourceAttributes, resourceAttr)
-				}
-			}
-
-			if r, ok := r["resource_instance_id"]; ok {
-				if r.(string) != "" {
-					resourceAttr := iampolicymanagementv1.ResourceAttribute{
-						Name:     core.StringPtr("serviceInstance"),
-						Value:    core.StringPtr(r.(string)),
-						Operator: core.StringPtr("stringEquals"),
-					}
-					resourceAttributes = append(resourceAttributes, resourceAttr)
-				}
-			}
-
-			if r, ok := r["region"]; ok {
-				if r.(string) != "" {
-					resourceAttr := iampolicymanagementv1.ResourceAttribute{
-						Name:     core.StringPtr("region"),
-						Value:    core.StringPtr(r.(string)),
-						Operator: core.StringPtr("stringEquals"),
-					}
-					resourceAttributes = append(resourceAttributes, resourceAttr)
-				}
-			}
-
-			if r, ok := r["resource_type"]; ok {
-				if r.(string) != "" {
-					resourceAttr := iampolicymanagementv1.ResourceAttribute{
-						Name:     core.StringPtr("resourceType"),
-						Value:    core.StringPtr(r.(string)),
-						Operator: core.StringPtr("stringEquals"),
-					}
-					resourceAttributes = append(resourceAttributes, resourceAttr)
-				}
-			}
-
-			if r, ok := r["resource"]; ok {
-				if r.(string) != "" {
-					resourceAttr := iampolicymanagementv1.ResourceAttribute{
-						Name:     core.StringPtr("resource"),
-						Value:    core.StringPtr(r.(string)),
-						Operator: core.StringPtr("stringEquals"),
-					}
-					resourceAttributes = append(resourceAttributes, resourceAttr)
-				}
-			}
-
-			if r, ok := r["resource_group_id"]; ok {
-				if r.(string) != "" {
-					resourceAttr := iampolicymanagementv1.ResourceAttribute{
-						Name:     core.StringPtr("resourceGroupId"),
-						Value:    core.StringPtr(r.(string)),
-						Operator: core.StringPtr("stringEquals"),
-					}
-					resourceAttributes = append(resourceAttributes, resourceAttr)
-				}
-			}
-
-			if r, ok := r["service_type"]; ok && r != nil {
-				if r.(string) != "" {
-					resourceAttr := iampolicymanagementv1.ResourceAttribute{
-						Name:     core.StringPtr("serviceType"),
-						Value:    core.StringPtr(r.(string)),
-						Operator: core.StringPtr("stringEquals"),
-					}
-					resourceAttributes = append(resourceAttributes, resourceAttr)
-				}
-			}
-
-			if r, ok := r["attributes"]; ok {
-				for k, v := range r.(map[string]interface{}) {
-					resourceAttributes = SetResourceAttribute(core.StringPtr(k), core.StringPtr(v.(string)), resourceAttributes)
-				}
-			}
-		}
-	}
-	if r, ok := d.GetOk("resource_attributes"); ok {
-		for _, attribute := range r.(*schema.Set).List() {
-			a := attribute.(map[string]interface{})
-			name := a["name"].(string)
-			value := a["value"].(string)
-			operator := a["operator"].(string)
-			if name == "serviceName" {
-				serviceName = value
-			}
-			at := iampolicymanagementv1.ResourceAttribute{
-				Name:     &name,
-				Value:    &value,
-				Operator: &operator,
-			}
-			resourceAttributes = append(resourceAttributes, at)
-		}
-	}
-
-	var serviceTypeResourceAttribute iampolicymanagementv1.ResourceAttribute
-
-	if d.Get("account_management").(bool) {
-		serviceTypeResourceAttribute = iampolicymanagementv1.ResourceAttribute{
-			Name:     core.StringPtr("serviceType"),
-			Value:    core.StringPtr("platform_service"),
-			Operator: core.StringPtr("stringEquals"),
-		}
-		resourceAttributes = append(resourceAttributes, serviceTypeResourceAttribute)
-	}
-
-	if len(resourceAttributes) == 0 {
-		serviceTypeResourceAttribute = iampolicymanagementv1.ResourceAttribute{
-			Name:     core.StringPtr("serviceType"),
-			Value:    core.StringPtr("service"),
-			Operator: core.StringPtr("stringEquals"),
-		}
-		resourceAttributes = append(resourceAttributes, serviceTypeResourceAttribute)
-	}
-
-	policyResources := iampolicymanagementv1.PolicyResource{
-		Attributes: resourceAttributes,
-	}
-
-	userDetails, err := meta.(conns.ClientSession).BluemixUserDetails()
-	if err != nil {
-		return iampolicymanagementv1.CreatePolicyOptions{}, err
-	}
-
-	iamPolicyManagementClient, err := meta.(conns.ClientSession).IAMPolicyManagementV1API()
-
-	if err != nil {
-		return iampolicymanagementv1.CreatePolicyOptions{}, err
-	}
-
-	serviceToQuery := serviceName
-
-	if serviceName == "" && // no specific service specified
-		!d.Get("account_management").(bool) && // not all account management services
-		resourceType != "resource-group" { // not to a resource group
-		serviceToQuery = "alliamserviceroles"
-	}
-
-	listRoleOptions := &iampolicymanagementv1.ListRolesOptions{
-		AccountID:   &userDetails.UserAccount,
-		ServiceName: &serviceToQuery,
-	}
-
-	roleList, _, err := iamPolicyManagementClient.ListRoles(listRoleOptions)
-	if err != nil {
-		return iampolicymanagementv1.CreatePolicyOptions{}, err
-	}
-
-	roles := MapRoleListToPolicyRoles(*roleList)
-	policyRoles, err := GetRolesFromRoleNames(ExpandStringList(d.Get("roles").([]interface{})), roles)
-	if err != nil {
-		return iampolicymanagementv1.CreatePolicyOptions{}, err
-	}
-
-	return iampolicymanagementv1.CreatePolicyOptions{Roles: policyRoles, Resources: []iampolicymanagementv1.PolicyResource{policyResources}}, nil
-}
-
 func SetTags(d *schema.ResourceData) []iampolicymanagementv1.ResourceTag {
 	resourceAttributes := []iampolicymanagementv1.ResourceTag{}
 	if r, ok := d.GetOk("resource_tags"); ok {
@@ -3001,25 +2532,6 @@ func SetTags(d *schema.ResourceData) []iampolicymanagementv1.ResourceTag {
 		return resourceAttributes
 	}
 	return []iampolicymanagementv1.ResourceTag{}
-}
-
-func GetIBMUniqueId(accountID, userEmail string, meta interface{}) (string, error) {
-	userManagement, err := meta.(conns.ClientSession).UserManagementAPI()
-	if err != nil {
-		return "", err
-	}
-	client := userManagement.UserInvite()
-	res, err := client.ListUsers(accountID)
-	if err != nil {
-		return "", err
-	}
-	for _, userInfo := range res {
-		//handling case-sensitivity in userEmail
-		if strings.ToLower(userInfo.Email) == strings.ToLower(userEmail) {
-			return userInfo.IamID, nil
-		}
-	}
-	return "", fmt.Errorf("User %s is not found under account %s", userEmail, accountID)
 }
 
 func ImmutableResourceCustomizeDiff(resourceList []string, diff *schema.ResourceDiff) error {

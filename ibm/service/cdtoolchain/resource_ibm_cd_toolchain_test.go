@@ -30,16 +30,16 @@ func TestAccIBMCdToolchainBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainConfigBasic(name, resourceGroupID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainExists("ibm_cd_toolchain.cd_toolchain", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain.cd_toolchain", "name", name),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain.cd_toolchain", "resource_group_id", resourceGroupID),
+					testAccCheckIBMCdToolchainExists("ibmcd_toolchain.cd_toolchain", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain.cd_toolchain", "name", name),
+					resource.TestCheckResourceAttr("ibmcd_toolchain.cd_toolchain", "resource_group_id", resourceGroupID),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainConfigBasic(nameUpdate, resourceGroupID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain.cd_toolchain", "name", nameUpdate),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain.cd_toolchain", "resource_group_id", resourceGroupID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain.cd_toolchain", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain.cd_toolchain", "resource_group_id", resourceGroupID),
 				),
 			},
 		},
@@ -62,22 +62,22 @@ func TestAccIBMCdToolchainAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainConfig(name, resourceGroupID, description),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainExists("ibm_cd_toolchain.cd_toolchain", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain.cd_toolchain", "name", name),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain.cd_toolchain", "resource_group_id", resourceGroupID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain.cd_toolchain", "description", description),
+					testAccCheckIBMCdToolchainExists("ibmcd_toolchain.cd_toolchain", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain.cd_toolchain", "name", name),
+					resource.TestCheckResourceAttr("ibmcd_toolchain.cd_toolchain", "resource_group_id", resourceGroupID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain.cd_toolchain", "description", description),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainConfig(nameUpdate, resourceGroupID, descriptionUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain.cd_toolchain", "name", nameUpdate),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain.cd_toolchain", "resource_group_id", resourceGroupID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain.cd_toolchain", "description", descriptionUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain.cd_toolchain", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain.cd_toolchain", "resource_group_id", resourceGroupID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain.cd_toolchain", "description", descriptionUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain.cd_toolchain",
+				ResourceName:      "ibmcd_toolchain.cd_toolchain",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -88,7 +88,7 @@ func TestAccIBMCdToolchainAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainConfigBasic(name string, resourceGroupID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain" "cd_toolchain" {
+		resource "ibmcd_toolchain" "cd_toolchain" {
 			name = "%s"
 			resource_group_id = "%s"
 		}
@@ -98,7 +98,7 @@ func testAccCheckIBMCdToolchainConfigBasic(name string, resourceGroupID string) 
 func testAccCheckIBMCdToolchainConfig(name string, resourceGroupID string, description string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain" "cd_toolchain" {
+		resource "ibmcd_toolchain" "cd_toolchain" {
 			name = "%s"
 			resource_group_id = "%s"
 			description = "%s"
@@ -139,7 +139,7 @@ func testAccCheckIBMCdToolchainDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain" {
+		if rs.Type != "ibmcd_toolchain" {
 			continue
 		}
 

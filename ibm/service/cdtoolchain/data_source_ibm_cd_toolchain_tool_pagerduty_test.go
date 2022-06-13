@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolPagerdutyDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPagerdutyDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolPagerdutyDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPagerdutyDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolPagerdutyDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolPagerdutyDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
+		resource "ibmcd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
-			toolchain_id = ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty.toolchain_id
+		data "ibmcd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
+			toolchain_id = ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolPagerdutyDataSourceConfigBasic(getToolByIDRes
 
 func testAccCheckIBMCdToolchainToolPagerdutyDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
+		resource "ibmcd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -101,8 +101,8 @@ func testAccCheckIBMCdToolchainToolPagerdutyDataSourceConfig(getToolByIDResponse
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
-			toolchain_id = ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty.toolchain_id
+		data "ibmcd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
+			toolchain_id = ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

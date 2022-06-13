@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain"
+page_title: "IBM : ibmcd_toolchain"
 description: |-
   Manages cd_toolchain.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain
+# ibmcd_toolchain
 
 Provides a resource for cd_toolchain. This allows cd_toolchain to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain" "cd_toolchain" {
+resource "ibmcd_toolchain" "cd_toolchain" {
   description = "A sample toolchain to test the API"
   name = "TestToolchainV2"
   resource_group_id = "6a9a01f2cff54a7f966f803d92877123"
@@ -97,9 +97,9 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain` resource by using `id`. Toolchain ID.
+You can import the `ibmcd_toolchain` resource by using `id`. Toolchain ID.
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain.cd_toolchain <id>
+$ terraform import ibmcd_toolchain.cd_toolchain <id>
 ```

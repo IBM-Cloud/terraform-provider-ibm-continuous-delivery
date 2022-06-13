@@ -29,20 +29,20 @@ func ResourceIBMCdToolchain() *schema.Resource {
 			"name": &schema.Schema{
 				Type:         schema.TypeString,
 				Required:     true,
-				ValidateFunc: validate.InvokeValidator("ibm_cd_toolchain", "name"),
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain", "name"),
 				Description:  "Toolchain name.",
 			},
 			"resource_group_id": &schema.Schema{
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
-				ValidateFunc: validate.InvokeValidator("ibm_cd_toolchain", "resource_group_id"),
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain", "resource_group_id"),
 				Description:  "Resource group where toolchain will be created.",
 			},
 			"description": &schema.Schema{
 				Type:         schema.TypeString,
 				Optional:     true,
-				ValidateFunc: validate.InvokeValidator("ibm_cd_toolchain", "description"),
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain", "description"),
 				Description:  "Describes the toolchain.",
 			},
 			"account_id": &schema.Schema{
@@ -122,7 +122,7 @@ func ResourceIBMCdToolchainValidator() *validate.ResourceValidator {
 		},
 	)
 
-	resourceValidator := validate.ResourceValidator{ResourceName: "ibm_cd_toolchain", Schema: validateSchema}
+	resourceValidator := validate.ResourceValidator{ResourceName: "ibmcd_toolchain", Schema: validateSchema}
 	return &resourceValidator
 }
 

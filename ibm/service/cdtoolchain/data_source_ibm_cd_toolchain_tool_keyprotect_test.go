@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolKeyprotectDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolKeyprotectDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolKeyprotectDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolKeyprotectDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolKeyprotectDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolKeyprotectDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
+		resource "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
-			toolchain_id = ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect.toolchain_id
+		data "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
+			toolchain_id = ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolKeyprotectDataSourceConfigBasic(getToolByIDRe
 
 func testAccCheckIBMCdToolchainToolKeyprotectDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
+		resource "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -98,8 +98,8 @@ func testAccCheckIBMCdToolchainToolKeyprotectDataSourceConfig(getToolByIDRespons
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
-			toolchain_id = ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect.toolchain_id
+		data "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
+			toolchain_id = ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

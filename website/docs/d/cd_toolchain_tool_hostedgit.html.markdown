@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_hostedgit"
+page_title: "IBM : ibmcd_toolchain_tool_hostedgit"
 description: |-
   Get information about cd_toolchain_tool_hostedgit
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_hostedgit
+# ibmcd_toolchain_tool_hostedgit
 
 Provides a read-only data source for cd_toolchain_tool_hostedgit. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_hostedgit" "cd_toolchain_tool_hostedgit" {
+data "ibmcd_toolchain_tool_hostedgit" "cd_toolchain_tool_hostedgit" {
 	tool_id = "tool_id"
 	toolchain_id = "toolchain_id"
 }

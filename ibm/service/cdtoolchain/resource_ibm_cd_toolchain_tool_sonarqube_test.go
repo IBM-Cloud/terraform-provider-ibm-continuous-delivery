@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolSonarqubeBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSonarqubeConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolSonarqubeExists("ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolSonarqubeExists("ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolSonarqubeAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSonarqubeConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolSonarqubeExists("ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "name", name),
+					testAccCheckIBMCdToolchainToolSonarqubeExists("ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSonarqubeConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube",
+				ResourceName:      "ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolSonarqubeAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolSonarqubeConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
+		resource "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolSonarqubeConfigBasic(toolchainID string) stri
 func testAccCheckIBMCdToolchainToolSonarqubeConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
+		resource "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -137,7 +137,7 @@ func testAccCheckIBMCdToolchainToolSonarqubeDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_sonarqube" {
+		if rs.Type != "ibmcd_toolchain_tool_sonarqube" {
 			continue
 		}
 

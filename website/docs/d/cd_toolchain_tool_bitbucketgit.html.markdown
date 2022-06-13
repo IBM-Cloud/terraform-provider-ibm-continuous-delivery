@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_bitbucketgit"
+page_title: "IBM : ibmcd_toolchain_tool_bitbucketgit"
 description: |-
   Get information about cd_toolchain_tool_bitbucketgit
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_bitbucketgit
+# ibmcd_toolchain_tool_bitbucketgit
 
 Provides a read-only data source for cd_toolchain_tool_bitbucketgit. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_bitbucketgit" "cd_toolchain_tool_bitbucketgit" {
+data "ibmcd_toolchain_tool_bitbucketgit" "cd_toolchain_tool_bitbucketgit" {
 	tool_id = "tool_id"
 	toolchain_id = "toolchain_id"
 }

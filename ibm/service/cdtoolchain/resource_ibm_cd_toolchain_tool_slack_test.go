@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolSlackBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSlackConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolSlackExists("ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolSlackExists("ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolSlackAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSlackConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolSlackExists("ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "name", name),
+					testAccCheckIBMCdToolchainToolSlackExists("ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSlackConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack",
+				ResourceName:      "ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolSlackAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolSlackConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
+		resource "ibmcd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolSlackConfigBasic(toolchainID string) string {
 func testAccCheckIBMCdToolchainToolSlackConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
+		resource "ibmcd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -140,7 +140,7 @@ func testAccCheckIBMCdToolchainToolSlackDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_slack" {
+		if rs.Type != "ibmcd_toolchain_tool_slack" {
 			continue
 		}
 

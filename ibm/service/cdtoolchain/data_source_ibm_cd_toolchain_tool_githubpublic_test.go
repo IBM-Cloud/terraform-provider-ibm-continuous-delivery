@@ -20,18 +20,18 @@ func TestAccIBMCdToolchainToolGithubpublicDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubpublicDataSourceConfigBasic(),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "state"),
 				),
 			},
 		},
@@ -40,7 +40,7 @@ func TestAccIBMCdToolchainToolGithubpublicDataSourceBasic(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolGithubpublicDataSourceConfigBasic() string {
 	return fmt.Sprintf(`
-		data "ibm_cd_toolchain_tool_githubpublic" "cd_toolchain_tool_githubpublic" {
+		data "ibmcd_toolchain_tool_githubpublic" "cd_toolchain_tool_githubpublic" {
 			toolchain_id = "toolchain_id"
 			tool_id = "tool_id"
 		}

@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_githubpublic"
+page_title: "IBM : ibmcd_toolchain_tool_githubpublic"
 description: |-
   Manages cd_toolchain_tool_githubpublic.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_githubpublic
+# ibmcd_toolchain_tool_githubpublic
 
 Provides a resource for cd_toolchain_tool_githubpublic. This allows cd_toolchain_tool_githubpublic to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_githubpublic" "cd_toolchain_tool_githubpublic" {
+resource "ibmcd_toolchain_tool_githubpublic" "cd_toolchain_tool_githubpublic" {
   initialization {
 		legal = true
 		repo_name = "repo_name"
@@ -173,7 +173,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_githubpublic` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_githubpublic` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -184,5 +184,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic <toolchain_id>/<tool_id>
 ```

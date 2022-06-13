@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolSaucelabsDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSaucelabsDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolSaucelabsDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSaucelabsDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolSaucelabsDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolSaucelabsDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
+		resource "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
-			toolchain_id = ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs.toolchain_id
+		data "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
+			toolchain_id = ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolSaucelabsDataSourceConfigBasic(getToolByIDRes
 
 func testAccCheckIBMCdToolchainToolSaucelabsDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
+		resource "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -95,8 +95,8 @@ func testAccCheckIBMCdToolchainToolSaucelabsDataSourceConfig(getToolByIDResponse
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
-			toolchain_id = ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs.toolchain_id
+		data "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
+			toolchain_id = ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

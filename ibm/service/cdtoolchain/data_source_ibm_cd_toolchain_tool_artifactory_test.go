@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolArtifactoryDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolArtifactoryDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolArtifactoryDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
+		resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
-			toolchain_id = ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.toolchain_id
+		data "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
+			toolchain_id = ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfigBasic(getToolByIDR
 
 func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
+		resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -104,8 +104,8 @@ func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(getToolByIDRespon
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
-			toolchain_id = ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.toolchain_id
+		data "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
+			toolchain_id = ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

@@ -20,18 +20,18 @@ func TestAccIBMCdToolchainToolGithubconsolidatedDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubconsolidatedDataSourceConfigBasic(),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "state"),
 				),
 			},
 		},
@@ -40,7 +40,7 @@ func TestAccIBMCdToolchainToolGithubconsolidatedDataSourceBasic(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolGithubconsolidatedDataSourceConfigBasic() string {
 	return fmt.Sprintf(`
-		data "ibm_cd_toolchain_tool_githubconsolidated" "cd_toolchain_tool_githubconsolidated" {
+		data "ibmcd_toolchain_tool_githubconsolidated" "cd_toolchain_tool_githubconsolidated" {
 			toolchain_id = "toolchain_id"
 			tool_id = "tool_id"
 		}

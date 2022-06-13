@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolHostedgitBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolHostedgitConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolHostedgitExists("ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolHostedgitExists("ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolHostedgitAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolHostedgitConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolHostedgitExists("ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "name", name),
+					testAccCheckIBMCdToolchainToolHostedgitExists("ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolHostedgitConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit",
+				ResourceName:      "ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolHostedgitAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolHostedgitConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_hostedgit" "cd_toolchain_tool_hostedgit" {
+		resource "ibmcd_toolchain_tool_hostedgit" "cd_toolchain_tool_hostedgit" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolHostedgitConfigBasic(toolchainID string) stri
 func testAccCheckIBMCdToolchainToolHostedgitConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_hostedgit" "cd_toolchain_tool_hostedgit" {
+		resource "ibmcd_toolchain_tool_hostedgit" "cd_toolchain_tool_hostedgit" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -158,7 +158,7 @@ func testAccCheckIBMCdToolchainToolHostedgitDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_hostedgit" {
+		if rs.Type != "ibmcd_toolchain_tool_hostedgit" {
 			continue
 		}
 

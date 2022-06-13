@@ -1,21 +1,21 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_appconfig"
+page_title: "IBM : ibmcd_toolchain_tool_appconfig"
 description: |-
   Get information about cd_toolchain_tool_appconfig
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_appconfig
+# ibmcd_toolchain_tool_appconfig
 
 Provides a read-only data source for cd_toolchain_tool_appconfig. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_appconfig" "cd_toolchain_tool_appconfig" {
+data "ibmcd_toolchain_tool_appconfig" "cd_toolchain_tool_appconfig" {
 	tool_id = "tool_id"
-	toolchain_id = ibm_cd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig.toolchain_id
+	toolchain_id = ibmcd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig.toolchain_id
 }
 ```
 

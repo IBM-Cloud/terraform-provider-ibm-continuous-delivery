@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolGithubconsolidatedBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubconsolidatedConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolGithubconsolidatedExists("ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolGithubconsolidatedExists("ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolGithubconsolidatedAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubconsolidatedConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolGithubconsolidatedExists("ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "name", name),
+					testAccCheckIBMCdToolchainToolGithubconsolidatedExists("ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubconsolidatedConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated",
+				ResourceName:      "ibmcd_toolchain_tool_githubconsolidated.cd_toolchain_tool_githubconsolidated",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolGithubconsolidatedAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolGithubconsolidatedConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_githubconsolidated" "cd_toolchain_tool_githubconsolidated" {
+		resource "ibmcd_toolchain_tool_githubconsolidated" "cd_toolchain_tool_githubconsolidated" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolGithubconsolidatedConfigBasic(toolchainID str
 func testAccCheckIBMCdToolchainToolGithubconsolidatedConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_githubconsolidated" "cd_toolchain_tool_githubconsolidated" {
+		resource "ibmcd_toolchain_tool_githubconsolidated" "cd_toolchain_tool_githubconsolidated" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -162,7 +162,7 @@ func testAccCheckIBMCdToolchainToolGithubconsolidatedDestroy(s *terraform.State)
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_githubconsolidated" {
+		if rs.Type != "ibmcd_toolchain_tool_githubconsolidated" {
 			continue
 		}
 

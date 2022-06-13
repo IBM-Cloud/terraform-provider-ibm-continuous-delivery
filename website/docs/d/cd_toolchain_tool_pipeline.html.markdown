@@ -1,21 +1,21 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_pipeline"
+page_title: "IBM : ibmcd_toolchain_tool_pipeline"
 description: |-
   Get information about cd_toolchain_tool_pipeline
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_pipeline
+# ibmcd_toolchain_tool_pipeline
 
 Provides a read-only data source for cd_toolchain_tool_pipeline. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
+data "ibmcd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
 	tool_id = "tool_id"
-	toolchain_id = ibm_cd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline.toolchain_id
+	toolchain_id = ibmcd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline.toolchain_id
 }
 ```
 

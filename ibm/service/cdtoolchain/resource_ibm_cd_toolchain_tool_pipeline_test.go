@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolPipelineBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPipelineConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolPipelineExists("ibm_cd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolPipelineExists("ibmcd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolPipelineAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPipelineConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolPipelineExists("ibm_cd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", "name", name),
+					testAccCheckIBMCdToolchainToolPipelineExists("ibmcd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPipelineConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline",
+				ResourceName:      "ibmcd_toolchain_tool_pipeline.cd_toolchain_tool_pipeline",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolPipelineAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolPipelineConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
+		resource "ibmcd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolPipelineConfigBasic(toolchainID string) strin
 func testAccCheckIBMCdToolchainToolPipelineConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
+		resource "ibmcd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -135,7 +135,7 @@ func testAccCheckIBMCdToolchainToolPipelineDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_pipeline" {
+		if rs.Type != "ibmcd_toolchain_tool_pipeline" {
 			continue
 		}
 

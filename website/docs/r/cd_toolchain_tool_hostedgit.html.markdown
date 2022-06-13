@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_hostedgit"
+page_title: "IBM : ibmcd_toolchain_tool_hostedgit"
 description: |-
   Manages cd_toolchain_tool_hostedgit.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_hostedgit
+# ibmcd_toolchain_tool_hostedgit
 
 Provides a resource for cd_toolchain_tool_hostedgit. This allows cd_toolchain_tool_hostedgit to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_hostedgit" "cd_toolchain_tool_hostedgit" {
+resource "ibmcd_toolchain_tool_hostedgit" "cd_toolchain_tool_hostedgit" {
   initialization {
 		repo_name = "repo_name"
 		repo_url = "repo_url"
@@ -161,7 +161,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_hostedgit` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_hostedgit` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -172,5 +172,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit <toolchain_id>/<tool_id>
 ```

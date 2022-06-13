@@ -1,21 +1,21 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_keyprotect"
+page_title: "IBM : ibmcd_toolchain_tool_keyprotect"
 description: |-
   Get information about cd_toolchain_tool_keyprotect
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_keyprotect
+# ibmcd_toolchain_tool_keyprotect
 
 Provides a read-only data source for cd_toolchain_tool_keyprotect. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
+data "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
 	tool_id = "tool_id"
-	toolchain_id = ibm_cd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect.toolchain_id
+	toolchain_id = ibmcd_toolchain_tool_keyprotect.cd_toolchain_tool_keyprotect.toolchain_id
 }
 ```
 

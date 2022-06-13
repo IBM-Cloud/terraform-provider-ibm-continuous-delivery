@@ -26,11 +26,11 @@ func TestAccIBMTektonPipelineBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMTektonPipelineConfigBasic(),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMTektonPipelineExists("ibm_cd_tekton_pipeline.tekton_pipeline", conf),
+					testAccCheckIBMTektonPipelineExists("ibmcd_tekton_pipeline.tekton_pipeline", conf),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_tekton_pipeline.tekton_pipeline",
+				ResourceName:      "ibmcd_tekton_pipeline.tekton_pipeline",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -41,7 +41,7 @@ func TestAccIBMTektonPipelineBasic(t *testing.T) {
 func testAccCheckIBMTektonPipelineConfigBasic() string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_tekton_pipeline" "tekton_pipeline" {
+		resource "ibmcd_tekton_pipeline" "tekton_pipeline" {
 		}
 	`)
 }
@@ -79,7 +79,7 @@ func testAccCheckIBMTektonPipelineDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_tekton_pipeline" {
+		if rs.Type != "ibmcd_tekton_pipeline" {
 			continue
 		}
 

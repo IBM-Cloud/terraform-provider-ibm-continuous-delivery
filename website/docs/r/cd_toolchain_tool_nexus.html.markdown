@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_nexus"
+page_title: "IBM : ibmcd_toolchain_tool_nexus"
 description: |-
   Manages cd_toolchain_tool_nexus.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_nexus
+# ibmcd_toolchain_tool_nexus
 
 Provides a resource for cd_toolchain_tool_nexus. This allows cd_toolchain_tool_nexus to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
+resource "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
   parameters {
 		name = "name"
 		dashboard_url = "dashboard_url"
@@ -119,7 +119,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_nexus` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_nexus` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -130,5 +130,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus <toolchain_id>/<tool_id>
 ```

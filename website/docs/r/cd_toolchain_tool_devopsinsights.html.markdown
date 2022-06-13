@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_devopsinsights"
+page_title: "IBM : ibmcd_toolchain_tool_devopsinsights"
 description: |-
   Manages cd_toolchain_tool_devopsinsights.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_devopsinsights
+# ibmcd_toolchain_tool_devopsinsights
 
 Provides a resource for cd_toolchain_tool_devopsinsights. This allows cd_toolchain_tool_devopsinsights to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_devopsinsights" "cd_toolchain_tool_devopsinsights" {
+resource "ibmcd_toolchain_tool_devopsinsights" "cd_toolchain_tool_devopsinsights" {
   toolchain_id = "toolchain_id"
 }
 ```
@@ -98,7 +98,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_devopsinsights` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_devopsinsights` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -109,5 +109,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights <toolchain_id>/<tool_id>
 ```

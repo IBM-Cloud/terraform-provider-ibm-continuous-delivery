@@ -1,21 +1,21 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_slack"
+page_title: "IBM : ibmcd_toolchain_tool_slack"
 description: |-
   Get information about cd_toolchain_tool_slack
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_slack
+# ibmcd_toolchain_tool_slack
 
 Provides a read-only data source for cd_toolchain_tool_slack. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
+data "ibmcd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
 	tool_id = "tool_id"
-	toolchain_id = ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack.toolchain_id
+	toolchain_id = ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack.toolchain_id
 }
 ```
 

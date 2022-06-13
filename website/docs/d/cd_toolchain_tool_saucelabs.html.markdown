@@ -1,21 +1,21 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_saucelabs"
+page_title: "IBM : ibmcd_toolchain_tool_saucelabs"
 description: |-
   Get information about cd_toolchain_tool_saucelabs
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_saucelabs
+# ibmcd_toolchain_tool_saucelabs
 
 Provides a read-only data source for cd_toolchain_tool_saucelabs. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
+data "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
 	tool_id = "tool_id"
-	toolchain_id = ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs.toolchain_id
+	toolchain_id = ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs.toolchain_id
 }
 ```
 

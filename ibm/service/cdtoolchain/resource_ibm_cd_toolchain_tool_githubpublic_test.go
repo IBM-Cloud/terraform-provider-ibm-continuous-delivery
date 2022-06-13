@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolGithubpublicBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubpublicConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolGithubpublicExists("ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolGithubpublicExists("ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolGithubpublicAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubpublicConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolGithubpublicExists("ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "name", name),
+					testAccCheckIBMCdToolchainToolGithubpublicExists("ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubpublicConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic",
+				ResourceName:      "ibmcd_toolchain_tool_githubpublic.cd_toolchain_tool_githubpublic",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolGithubpublicAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolGithubpublicConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_githubpublic" "cd_toolchain_tool_githubpublic" {
+		resource "ibmcd_toolchain_tool_githubpublic" "cd_toolchain_tool_githubpublic" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolGithubpublicConfigBasic(toolchainID string) s
 func testAccCheckIBMCdToolchainToolGithubpublicConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_githubpublic" "cd_toolchain_tool_githubpublic" {
+		resource "ibmcd_toolchain_tool_githubpublic" "cd_toolchain_tool_githubpublic" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -162,7 +162,7 @@ func testAccCheckIBMCdToolchainToolGithubpublicDestroy(s *terraform.State) error
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_githubpublic" {
+		if rs.Type != "ibmcd_toolchain_tool_githubpublic" {
 			continue
 		}
 

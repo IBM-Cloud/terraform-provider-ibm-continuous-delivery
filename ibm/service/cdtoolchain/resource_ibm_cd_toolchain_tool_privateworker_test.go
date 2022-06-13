@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolPrivateworkerBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPrivateworkerConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolPrivateworkerExists("ibm_cd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolPrivateworkerExists("ibmcd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolPrivateworkerAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPrivateworkerConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolPrivateworkerExists("ibm_cd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", "name", name),
+					testAccCheckIBMCdToolchainToolPrivateworkerExists("ibmcd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPrivateworkerConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker",
+				ResourceName:      "ibmcd_toolchain_tool_privateworker.cd_toolchain_tool_privateworker",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolPrivateworkerAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolPrivateworkerConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_privateworker" "cd_toolchain_tool_privateworker" {
+		resource "ibmcd_toolchain_tool_privateworker" "cd_toolchain_tool_privateworker" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolPrivateworkerConfigBasic(toolchainID string) 
 func testAccCheckIBMCdToolchainToolPrivateworkerConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_privateworker" "cd_toolchain_tool_privateworker" {
+		resource "ibmcd_toolchain_tool_privateworker" "cd_toolchain_tool_privateworker" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -135,7 +135,7 @@ func testAccCheckIBMCdToolchainToolPrivateworkerDestroy(s *terraform.State) erro
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_privateworker" {
+		if rs.Type != "ibmcd_toolchain_tool_privateworker" {
 			continue
 		}
 

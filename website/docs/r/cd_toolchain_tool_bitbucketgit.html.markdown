@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_bitbucketgit"
+page_title: "IBM : ibmcd_toolchain_tool_bitbucketgit"
 description: |-
   Manages cd_toolchain_tool_bitbucketgit.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_bitbucketgit
+# ibmcd_toolchain_tool_bitbucketgit
 
 Provides a resource for cd_toolchain_tool_bitbucketgit. This allows cd_toolchain_tool_bitbucketgit to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_bitbucketgit" "cd_toolchain_tool_bitbucketgit" {
+resource "ibmcd_toolchain_tool_bitbucketgit" "cd_toolchain_tool_bitbucketgit" {
   initialization {
 		repo_name = "repo_name"
 		repo_url = "repo_url"
@@ -164,7 +164,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_bitbucketgit` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_bitbucketgit` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -175,5 +175,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_bitbucketgit.cd_toolchain_tool_bitbucketgit <toolchain_id>/<tool_id>
 ```

@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolSecretsmanagerDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSecretsmanagerDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolSecretsmanagerDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSecretsmanagerDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolSecretsmanagerDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolSecretsmanagerDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
+		resource "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
-			toolchain_id = ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager.toolchain_id
+		data "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
+			toolchain_id = ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolSecretsmanagerDataSourceConfigBasic(getToolBy
 
 func testAccCheckIBMCdToolchainToolSecretsmanagerDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
+		resource "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -98,8 +98,8 @@ func testAccCheckIBMCdToolchainToolSecretsmanagerDataSourceConfig(getToolByIDRes
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
-			toolchain_id = ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager.toolchain_id
+		data "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
+			toolchain_id = ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

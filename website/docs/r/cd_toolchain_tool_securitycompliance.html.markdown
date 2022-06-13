@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_securitycompliance"
+page_title: "IBM : ibmcd_toolchain_tool_securitycompliance"
 description: |-
   Manages cd_toolchain_tool_securitycompliance.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_securitycompliance
+# ibmcd_toolchain_tool_securitycompliance
 
 Provides a resource for cd_toolchain_tool_securitycompliance. This allows cd_toolchain_tool_securitycompliance to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
+resource "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
   parameters {
 		name = "name"
 		evidence_repo_name = "evidence_repo_name"
@@ -121,7 +121,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_securitycompliance` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_securitycompliance` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -132,5 +132,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance <toolchain_id>/<tool_id>
 ```

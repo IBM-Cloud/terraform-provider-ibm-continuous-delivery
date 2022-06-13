@@ -20,18 +20,18 @@ func TestAccIBMCdToolchainToolHostedgitDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolHostedgitDataSourceConfigBasic(),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_hostedgit.cd_toolchain_tool_hostedgit", "state"),
 				),
 			},
 		},
@@ -40,7 +40,7 @@ func TestAccIBMCdToolchainToolHostedgitDataSourceBasic(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolHostedgitDataSourceConfigBasic() string {
 	return fmt.Sprintf(`
-		data "ibm_cd_toolchain_tool_hostedgit" "cd_toolchain_tool_hostedgit" {
+		data "ibmcd_toolchain_tool_hostedgit" "cd_toolchain_tool_hostedgit" {
 			toolchain_id = "toolchain_id"
 			tool_id = "tool_id"
 		}

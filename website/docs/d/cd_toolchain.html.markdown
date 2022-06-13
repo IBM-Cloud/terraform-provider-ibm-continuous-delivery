@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain"
+page_title: "IBM : ibmcd_toolchain"
 description: |-
   Get information about cd_toolchain
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain
+# ibmcd_toolchain
 
 Provides a read-only data source for cd_toolchain. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain" "cd_toolchain" {
+data "ibmcd_toolchain" "cd_toolchain" {
 	toolchain_id = "toolchain_id"
 }
 ```

@@ -30,13 +30,13 @@ func ResourceIBMCdToolchainToolSecuritycompliance() *schema.Resource {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
-				ValidateFunc: validate.InvokeValidator("ibm_cd_toolchain_tool_securitycompliance", "toolchain_id"),
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_securitycompliance", "toolchain_id"),
 				Description:  "ID of the toolchain to bind tool to.",
 			},
 			"name": &schema.Schema{
 				Type:         schema.TypeString,
 				Optional:     true,
-				ValidateFunc: validate.InvokeValidator("ibm_cd_toolchain_tool_securitycompliance", "name"),
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_securitycompliance", "name"),
 				Description:  "Name of tool.",
 			},
 			"parameters": &schema.Schema{
@@ -177,7 +177,7 @@ func ResourceIBMCdToolchainToolSecuritycomplianceValidator() *validate.ResourceV
 		},
 	)
 
-	resourceValidator := validate.ResourceValidator{ResourceName: "ibm_cd_toolchain_tool_securitycompliance", Schema: validateSchema}
+	resourceValidator := validate.ResourceValidator{ResourceName: "ibmcd_toolchain_tool_securitycompliance", Schema: validateSchema}
 	return &resourceValidator
 }
 

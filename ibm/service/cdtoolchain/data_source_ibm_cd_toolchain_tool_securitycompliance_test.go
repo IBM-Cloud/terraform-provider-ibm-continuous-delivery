@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolSecuritycomplianceDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSecuritycomplianceDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolSecuritycomplianceDataSourceAllArgs(t *testing.T) 
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSecuritycomplianceDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolSecuritycomplianceDataSourceAllArgs(t *testing.T) 
 
 func testAccCheckIBMCdToolchainToolSecuritycomplianceDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
+		resource "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
-			toolchain_id = ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance.toolchain_id
+		data "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
+			toolchain_id = ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolSecuritycomplianceDataSourceConfigBasic(getTo
 
 func testAccCheckIBMCdToolchainToolSecuritycomplianceDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
+		resource "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -101,8 +101,8 @@ func testAccCheckIBMCdToolchainToolSecuritycomplianceDataSourceConfig(getToolByI
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
-			toolchain_id = ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance.toolchain_id
+		data "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
+			toolchain_id = ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

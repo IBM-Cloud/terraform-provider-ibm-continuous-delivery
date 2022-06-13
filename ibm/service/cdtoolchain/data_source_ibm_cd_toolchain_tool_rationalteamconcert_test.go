@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolRationalteamconcertDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolRationalteamconcertDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolRationalteamconcertDataSourceAllArgs(t *testing.T)
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolRationalteamconcertDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolRationalteamconcertDataSourceAllArgs(t *testing.T)
 
 func testAccCheckIBMCdToolchainToolRationalteamconcertDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
+		resource "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
-			toolchain_id = ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert.toolchain_id
+		data "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
+			toolchain_id = ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolRationalteamconcertDataSourceConfigBasic(getT
 
 func testAccCheckIBMCdToolchainToolRationalteamconcertDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
+		resource "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -100,8 +100,8 @@ func testAccCheckIBMCdToolchainToolRationalteamconcertDataSourceConfig(getToolBy
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
-			toolchain_id = ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert.toolchain_id
+		data "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
+			toolchain_id = ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

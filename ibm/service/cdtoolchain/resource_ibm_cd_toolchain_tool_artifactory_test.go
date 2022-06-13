@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolArtifactoryBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolArtifactoryConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolArtifactoryExists("ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolArtifactoryExists("ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolArtifactoryAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolArtifactoryConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolArtifactoryExists("ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "name", name),
+					testAccCheckIBMCdToolchainToolArtifactoryExists("ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolArtifactoryConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory",
+				ResourceName:      "ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolArtifactoryAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolArtifactoryConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
+		resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolArtifactoryConfigBasic(toolchainID string) st
 func testAccCheckIBMCdToolchainToolArtifactoryConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
+		resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -143,7 +143,7 @@ func testAccCheckIBMCdToolchainToolArtifactoryDestroy(s *terraform.State) error 
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_artifactory" {
+		if rs.Type != "ibmcd_toolchain_tool_artifactory" {
 			continue
 		}
 

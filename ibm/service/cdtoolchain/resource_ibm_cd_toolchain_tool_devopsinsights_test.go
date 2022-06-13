@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolDevopsinsightsBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolDevopsinsightsConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolDevopsinsightsExists("ibm_cd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolDevopsinsightsExists("ibmcd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolDevopsinsightsAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolDevopsinsightsConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolDevopsinsightsExists("ibm_cd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", "name", name),
+					testAccCheckIBMCdToolchainToolDevopsinsightsExists("ibmcd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolDevopsinsightsConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights",
+				ResourceName:      "ibmcd_toolchain_tool_devopsinsights.cd_toolchain_tool_devopsinsights",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolDevopsinsightsAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolDevopsinsightsConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_devopsinsights" "cd_toolchain_tool_devopsinsights" {
+		resource "ibmcd_toolchain_tool_devopsinsights" "cd_toolchain_tool_devopsinsights" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolDevopsinsightsConfigBasic(toolchainID string)
 func testAccCheckIBMCdToolchainToolDevopsinsightsConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_devopsinsights" "cd_toolchain_tool_devopsinsights" {
+		resource "ibmcd_toolchain_tool_devopsinsights" "cd_toolchain_tool_devopsinsights" {
 			toolchain_id = "%s"
 			name = "%s"
 		}
@@ -130,7 +130,7 @@ func testAccCheckIBMCdToolchainToolDevopsinsightsDestroy(s *terraform.State) err
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_devopsinsights" {
+		if rs.Type != "ibmcd_toolchain_tool_devopsinsights" {
 			continue
 		}
 

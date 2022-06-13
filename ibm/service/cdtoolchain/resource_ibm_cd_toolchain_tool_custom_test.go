@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolCustomBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolCustomConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolCustomExists("ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolCustomExists("ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolCustomAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolCustomConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolCustomExists("ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "name", name),
+					testAccCheckIBMCdToolchainToolCustomExists("ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolCustomConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_custom.cd_toolchain_tool_custom",
+				ResourceName:      "ibmcd_toolchain_tool_custom.cd_toolchain_tool_custom",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolCustomAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolCustomConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
+		resource "ibmcd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolCustomConfigBasic(toolchainID string) string 
 func testAccCheckIBMCdToolchainToolCustomConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
+		resource "ibmcd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -140,7 +140,7 @@ func testAccCheckIBMCdToolchainToolCustomDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_custom" {
+		if rs.Type != "ibmcd_toolchain_tool_custom" {
 			continue
 		}
 

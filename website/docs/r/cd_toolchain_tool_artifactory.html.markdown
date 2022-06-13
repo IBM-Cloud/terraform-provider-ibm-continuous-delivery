@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_artifactory"
+page_title: "IBM : ibmcd_toolchain_tool_artifactory"
 description: |-
   Manages cd_toolchain_tool_artifactory.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_artifactory
+# ibmcd_toolchain_tool_artifactory
 
 Provides a resource for cd_toolchain_tool_artifactory. This allows cd_toolchain_tool_artifactory to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
+resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
   parameters {
 		name = "name"
 		dashboard_url = "dashboard_url"
@@ -124,7 +124,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_artifactory` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_artifactory` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -135,5 +135,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory <toolchain_id>/<tool_id>
 ```

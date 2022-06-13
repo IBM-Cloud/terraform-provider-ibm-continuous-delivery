@@ -30,13 +30,13 @@ func ResourceIBMCdToolchainToolHostedgit() *schema.Resource {
 				Type:         schema.TypeString,
 				Required:     true,
 				ForceNew:     true,
-				ValidateFunc: validate.InvokeValidator("ibm_cd_toolchain_tool_hostedgit", "toolchain_id"),
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_hostedgit", "toolchain_id"),
 				Description:  "ID of the toolchain to bind tool to.",
 			},
 			"name": &schema.Schema{
 				Type:         schema.TypeString,
 				Optional:     true,
-				ValidateFunc: validate.InvokeValidator("ibm_cd_toolchain_tool_hostedgit", "name"),
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_hostedgit", "name"),
 				Description:  "Name of tool.",
 			},
 			"parameters": &schema.Schema{
@@ -279,7 +279,7 @@ func ResourceIBMCdToolchainToolHostedgitValidator() *validate.ResourceValidator 
 		},
 	)
 
-	resourceValidator := validate.ResourceValidator{ResourceName: "ibm_cd_toolchain_tool_hostedgit", Schema: validateSchema}
+	resourceValidator := validate.ResourceValidator{ResourceName: "ibmcd_toolchain_tool_hostedgit", Schema: validateSchema}
 	return &resourceValidator
 }
 

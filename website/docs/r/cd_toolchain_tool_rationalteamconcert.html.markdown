@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_rationalteamconcert"
+page_title: "IBM : ibmcd_toolchain_tool_rationalteamconcert"
 description: |-
   Manages cd_toolchain_tool_rationalteamconcert.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_rationalteamconcert
+# ibmcd_toolchain_tool_rationalteamconcert
 
 Provides a resource for cd_toolchain_tool_rationalteamconcert. This allows cd_toolchain_tool_rationalteamconcert to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
+resource "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
   parameters {
 		server_url = "server_url"
 		user_id = "user_id"
@@ -118,7 +118,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_rationalteamconcert` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_rationalteamconcert` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -129,5 +129,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_rationalteamconcert.cd_toolchain_tool_rationalteamconcert <toolchain_id>/<tool_id>
 ```

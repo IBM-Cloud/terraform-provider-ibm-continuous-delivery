@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolGithubintegratedBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubintegratedConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolGithubintegratedExists("ibm_cd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolGithubintegratedExists("ibmcd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolGithubintegratedAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubintegratedConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolGithubintegratedExists("ibm_cd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", "name", name),
+					testAccCheckIBMCdToolchainToolGithubintegratedExists("ibmcd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolGithubintegratedConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated",
+				ResourceName:      "ibmcd_toolchain_tool_githubintegrated.cd_toolchain_tool_githubintegrated",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolGithubintegratedAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolGithubintegratedConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_githubintegrated" "cd_toolchain_tool_githubintegrated" {
+		resource "ibmcd_toolchain_tool_githubintegrated" "cd_toolchain_tool_githubintegrated" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolGithubintegratedConfigBasic(toolchainID strin
 func testAccCheckIBMCdToolchainToolGithubintegratedConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_githubintegrated" "cd_toolchain_tool_githubintegrated" {
+		resource "ibmcd_toolchain_tool_githubintegrated" "cd_toolchain_tool_githubintegrated" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -159,7 +159,7 @@ func testAccCheckIBMCdToolchainToolGithubintegratedDestroy(s *terraform.State) e
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_githubintegrated" {
+		if rs.Type != "ibmcd_toolchain_tool_githubintegrated" {
 			continue
 		}
 

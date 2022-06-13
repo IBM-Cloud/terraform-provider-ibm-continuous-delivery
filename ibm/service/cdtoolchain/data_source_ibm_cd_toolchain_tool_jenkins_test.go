@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolJenkinsDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolJenkinsDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolJenkinsDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolJenkinsDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolJenkinsDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolJenkinsDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
+		resource "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
-			toolchain_id = ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins.toolchain_id
+		data "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
+			toolchain_id = ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolJenkinsDataSourceConfigBasic(getToolByIDRespo
 
 func testAccCheckIBMCdToolchainToolJenkinsDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
+		resource "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -98,8 +98,8 @@ func testAccCheckIBMCdToolchainToolJenkinsDataSourceConfig(getToolByIDResponseTo
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
-			toolchain_id = ibm_cd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins.toolchain_id
+		data "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
+			toolchain_id = ibmcd_toolchain_tool_jenkins.cd_toolchain_tool_jenkins.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

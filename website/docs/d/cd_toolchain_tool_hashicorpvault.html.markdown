@@ -1,21 +1,21 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_hashicorpvault"
+page_title: "IBM : ibmcd_toolchain_tool_hashicorpvault"
 description: |-
   Get information about cd_toolchain_tool_hashicorpvault
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_hashicorpvault
+# ibmcd_toolchain_tool_hashicorpvault
 
 Provides a read-only data source for cd_toolchain_tool_hashicorpvault. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_hashicorpvault" "cd_toolchain_tool_hashicorpvault" {
+data "ibmcd_toolchain_tool_hashicorpvault" "cd_toolchain_tool_hashicorpvault" {
 	tool_id = "tool_id"
-	toolchain_id = ibm_cd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault.toolchain_id
+	toolchain_id = ibmcd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault.toolchain_id
 }
 ```
 

@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolSaucelabsBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSaucelabsConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolSaucelabsExists("ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolSaucelabsExists("ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolSaucelabsAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSaucelabsConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolSaucelabsExists("ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "name", name),
+					testAccCheckIBMCdToolchainToolSaucelabsExists("ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSaucelabsConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs",
+				ResourceName:      "ibmcd_toolchain_tool_saucelabs.cd_toolchain_tool_saucelabs",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolSaucelabsAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolSaucelabsConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
+		resource "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolSaucelabsConfigBasic(toolchainID string) stri
 func testAccCheckIBMCdToolchainToolSaucelabsConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
+		resource "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -134,7 +134,7 @@ func testAccCheckIBMCdToolchainToolSaucelabsDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_saucelabs" {
+		if rs.Type != "ibmcd_toolchain_tool_saucelabs" {
 			continue
 		}
 

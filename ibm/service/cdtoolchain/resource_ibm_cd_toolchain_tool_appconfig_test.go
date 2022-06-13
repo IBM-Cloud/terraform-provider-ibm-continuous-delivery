@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolAppconfigBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolAppconfigConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolAppconfigExists("ibm_cd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolAppconfigExists("ibmcd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolAppconfigAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolAppconfigConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolAppconfigExists("ibm_cd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", "name", name),
+					testAccCheckIBMCdToolchainToolAppconfigExists("ibmcd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolAppconfigConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig",
+				ResourceName:      "ibmcd_toolchain_tool_appconfig.cd_toolchain_tool_appconfig",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolAppconfigAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolAppconfigConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_appconfig" "cd_toolchain_tool_appconfig" {
+		resource "ibmcd_toolchain_tool_appconfig" "cd_toolchain_tool_appconfig" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolAppconfigConfigBasic(toolchainID string) stri
 func testAccCheckIBMCdToolchainToolAppconfigConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_appconfig" "cd_toolchain_tool_appconfig" {
+		resource "ibmcd_toolchain_tool_appconfig" "cd_toolchain_tool_appconfig" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -139,7 +139,7 @@ func testAccCheckIBMCdToolchainToolAppconfigDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_appconfig" {
+		if rs.Type != "ibmcd_toolchain_tool_appconfig" {
 			continue
 		}
 

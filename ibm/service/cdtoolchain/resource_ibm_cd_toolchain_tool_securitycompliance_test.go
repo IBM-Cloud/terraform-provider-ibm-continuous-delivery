@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolSecuritycomplianceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSecuritycomplianceConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolSecuritycomplianceExists("ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolSecuritycomplianceExists("ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolSecuritycomplianceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSecuritycomplianceConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolSecuritycomplianceExists("ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "name", name),
+					testAccCheckIBMCdToolchainToolSecuritycomplianceExists("ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSecuritycomplianceConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance",
+				ResourceName:      "ibmcd_toolchain_tool_securitycompliance.cd_toolchain_tool_securitycompliance",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolSecuritycomplianceAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolSecuritycomplianceConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
+		resource "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolSecuritycomplianceConfigBasic(toolchainID str
 func testAccCheckIBMCdToolchainToolSecuritycomplianceConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
+		resource "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -140,7 +140,7 @@ func testAccCheckIBMCdToolchainToolSecuritycomplianceDestroy(s *terraform.State)
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_securitycompliance" {
+		if rs.Type != "ibmcd_toolchain_tool_securitycompliance" {
 			continue
 		}
 

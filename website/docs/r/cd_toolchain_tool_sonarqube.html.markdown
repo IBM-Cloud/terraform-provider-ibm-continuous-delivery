@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_sonarqube"
+page_title: "IBM : ibmcd_toolchain_tool_sonarqube"
 description: |-
   Manages cd_toolchain_tool_sonarqube.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_sonarqube
+# ibmcd_toolchain_tool_sonarqube
 
 Provides a resource for cd_toolchain_tool_sonarqube. This allows cd_toolchain_tool_sonarqube to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
+resource "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
   parameters {
 		name = "name"
 		dashboard_url = "dashboard_url"
@@ -113,7 +113,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_sonarqube` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_sonarqube` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -124,5 +124,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_sonarqube.cd_toolchain_tool_sonarqube <toolchain_id>/<tool_id>
 ```

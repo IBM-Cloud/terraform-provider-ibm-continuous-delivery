@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolSecretsmanagerBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSecretsmanagerConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolSecretsmanagerExists("ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolSecretsmanagerExists("ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolSecretsmanagerAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSecretsmanagerConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolSecretsmanagerExists("ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "name", name),
+					testAccCheckIBMCdToolchainToolSecretsmanagerExists("ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSecretsmanagerConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager",
+				ResourceName:      "ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolSecretsmanagerAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolSecretsmanagerConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
+		resource "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolSecretsmanagerConfigBasic(toolchainID string)
 func testAccCheckIBMCdToolchainToolSecretsmanagerConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
+		resource "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -137,7 +137,7 @@ func testAccCheckIBMCdToolchainToolSecretsmanagerDestroy(s *terraform.State) err
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_secretsmanager" {
+		if rs.Type != "ibmcd_toolchain_tool_secretsmanager" {
 			continue
 		}
 

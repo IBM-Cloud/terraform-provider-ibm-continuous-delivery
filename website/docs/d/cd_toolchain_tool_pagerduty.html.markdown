@@ -1,21 +1,21 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_pagerduty"
+page_title: "IBM : ibmcd_toolchain_tool_pagerduty"
 description: |-
   Get information about cd_toolchain_tool_pagerduty
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_pagerduty
+# ibmcd_toolchain_tool_pagerduty
 
 Provides a read-only data source for cd_toolchain_tool_pagerduty. You can then reference the fields of the data source in other resources within the same configuration using interpolation syntax.
 
 ## Example Usage
 
 ```hcl
-data "ibm_cd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
+data "ibmcd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
 	tool_id = "tool_id"
-	toolchain_id = ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty.toolchain_id
+	toolchain_id = ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty.toolchain_id
 }
 ```
 

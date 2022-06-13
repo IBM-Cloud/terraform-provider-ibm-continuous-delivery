@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolNexusBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolNexusConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolNexusExists("ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolNexusExists("ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolNexusAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolNexusConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolNexusExists("ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "name", name),
+					testAccCheckIBMCdToolchainToolNexusExists("ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolNexusConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_nexus.cd_toolchain_tool_nexus",
+				ResourceName:      "ibmcd_toolchain_tool_nexus.cd_toolchain_tool_nexus",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolNexusAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolNexusConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
+		resource "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolNexusConfigBasic(toolchainID string) string {
 func testAccCheckIBMCdToolchainToolNexusConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
+		resource "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -140,7 +140,7 @@ func testAccCheckIBMCdToolchainToolNexusDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_nexus" {
+		if rs.Type != "ibmcd_toolchain_tool_nexus" {
 			continue
 		}
 

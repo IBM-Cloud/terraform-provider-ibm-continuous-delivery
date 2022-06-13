@@ -1,19 +1,19 @@
 ---
 layout: "ibm"
-page_title: "IBM : ibm_cd_toolchain_tool_secretsmanager"
+page_title: "IBM : ibmcd_toolchain_tool_secretsmanager"
 description: |-
   Manages cd_toolchain_tool_secretsmanager.
 subcategory: "CD Toolchain"
 ---
 
-# ibm_cd_toolchain_tool_secretsmanager
+# ibmcd_toolchain_tool_secretsmanager
 
 Provides a resource for cd_toolchain_tool_secretsmanager. This allows cd_toolchain_tool_secretsmanager to be created, updated and deleted.
 
 ## Example Usage
 
 ```hcl
-resource "ibm_cd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
+resource "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
   parameters {
 		name = "name"
 		region = "region"
@@ -112,7 +112,7 @@ For more informaton, see [here](https://registry.terraform.io/providers/IBM-Clou
 
 ## Import
 
-You can import the `ibm_cd_toolchain_tool_secretsmanager` resource by using `id`.
+You can import the `ibmcd_toolchain_tool_secretsmanager` resource by using `id`.
 The `id` property can be formed from `toolchain_id`, and `tool_id` in the following format:
 
 ```
@@ -123,5 +123,5 @@ The `id` property can be formed from `toolchain_id`, and `tool_id` in the follow
 
 # Syntax
 ```
-$ terraform import ibm_cd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager <toolchain_id>/<tool_id>
+$ terraform import ibmcd_toolchain_tool_secretsmanager.cd_toolchain_tool_secretsmanager <toolchain_id>/<tool_id>
 ```

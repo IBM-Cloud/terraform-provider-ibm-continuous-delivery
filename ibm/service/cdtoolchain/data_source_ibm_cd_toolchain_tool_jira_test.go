@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolJiraDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolJiraDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolJiraDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolJiraDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolJiraDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolJiraDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
+		resource "ibmcd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
-			toolchain_id = ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira.toolchain_id
+		data "ibmcd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
+			toolchain_id = ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolJiraDataSourceConfigBasic(getToolByIDResponse
 
 func testAccCheckIBMCdToolchainToolJiraDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
+		resource "ibmcd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -101,8 +101,8 @@ func testAccCheckIBMCdToolchainToolJiraDataSourceConfig(getToolByIDResponseToolc
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
-			toolchain_id = ibm_cd_toolchain_tool_jira.cd_toolchain_tool_jira.toolchain_id
+		data "ibmcd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
+			toolchain_id = ibmcd_toolchain_tool_jira.cd_toolchain_tool_jira.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

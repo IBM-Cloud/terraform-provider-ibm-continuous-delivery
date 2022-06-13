@@ -23,18 +23,18 @@ func TestAccIBMCdToolchainToolSlackDataSourceBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSlackDataSourceConfigBasic(getToolByIDResponseToolchainID),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "state"),
 				),
 			},
 		},
@@ -52,19 +52,19 @@ func TestAccIBMCdToolchainToolSlackDataSourceAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolSlackDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "tool_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "get_tool_by_id_response_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "resource_group_id"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_crn"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "href"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "referent.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "name"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "updated_at"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "parameters.#"),
-					resource.TestCheckResourceAttrSet("data.ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack", "state"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "tool_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "get_tool_by_id_response_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "resource_group_id"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "toolchain_crn"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "href"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "referent.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "name"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "updated_at"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "parameters.#"),
+					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack", "state"),
 				),
 			},
 		},
@@ -73,12 +73,12 @@ func TestAccIBMCdToolchainToolSlackDataSourceAllArgs(t *testing.T) {
 
 func testAccCheckIBMCdToolchainToolSlackDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
+		resource "ibmcd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
 			toolchain_id = "%s"
 		}
 
-		data "ibm_cd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
-			toolchain_id = ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack.toolchain_id
+		data "ibmcd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
+			toolchain_id = ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID)
@@ -86,7 +86,7 @@ func testAccCheckIBMCdToolchainToolSlackDataSourceConfigBasic(getToolByIDRespons
 
 func testAccCheckIBMCdToolchainToolSlackDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
-		resource "ibm_cd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
+		resource "ibmcd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -101,8 +101,8 @@ func testAccCheckIBMCdToolchainToolSlackDataSourceConfig(getToolByIDResponseTool
 			}
 		}
 
-		data "ibm_cd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
-			toolchain_id = ibm_cd_toolchain_tool_slack.cd_toolchain_tool_slack.toolchain_id
+		data "ibmcd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
+			toolchain_id = ibmcd_toolchain_tool_slack.cd_toolchain_tool_slack.toolchain_id
 			tool_id = "tool_id"
 		}
 	`, getToolByIDResponseToolchainID, getToolByIDResponseName)

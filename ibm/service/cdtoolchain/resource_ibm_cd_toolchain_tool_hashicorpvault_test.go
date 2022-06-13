@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolHashicorpvaultBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolHashicorpvaultConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolHashicorpvaultExists("ibm_cd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolHashicorpvaultExists("ibmcd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolHashicorpvaultAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolHashicorpvaultConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolHashicorpvaultExists("ibm_cd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", "name", name),
+					testAccCheckIBMCdToolchainToolHashicorpvaultExists("ibmcd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolHashicorpvaultConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault",
+				ResourceName:      "ibmcd_toolchain_tool_hashicorpvault.cd_toolchain_tool_hashicorpvault",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolHashicorpvaultAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolHashicorpvaultConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_hashicorpvault" "cd_toolchain_tool_hashicorpvault" {
+		resource "ibmcd_toolchain_tool_hashicorpvault" "cd_toolchain_tool_hashicorpvault" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolHashicorpvaultConfigBasic(toolchainID string)
 func testAccCheckIBMCdToolchainToolHashicorpvaultConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_hashicorpvault" "cd_toolchain_tool_hashicorpvault" {
+		resource "ibmcd_toolchain_tool_hashicorpvault" "cd_toolchain_tool_hashicorpvault" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -144,7 +144,7 @@ func testAccCheckIBMCdToolchainToolHashicorpvaultDestroy(s *terraform.State) err
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_hashicorpvault" {
+		if rs.Type != "ibmcd_toolchain_tool_hashicorpvault" {
 			continue
 		}
 

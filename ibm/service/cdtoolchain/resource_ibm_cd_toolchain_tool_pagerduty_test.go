@@ -29,8 +29,8 @@ func TestAccIBMCdToolchainToolPagerdutyBasic(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPagerdutyConfigBasic(toolchainID),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolPagerdutyExists("ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_id", toolchainID),
+					testAccCheckIBMCdToolchainToolPagerdutyExists("ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_id", toolchainID),
 				),
 			},
 		},
@@ -51,20 +51,20 @@ func TestAccIBMCdToolchainToolPagerdutyAllArgs(t *testing.T) {
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPagerdutyConfig(toolchainID, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					testAccCheckIBMCdToolchainToolPagerdutyExists("ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", conf),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "name", name),
+					testAccCheckIBMCdToolchainToolPagerdutyExists("ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", conf),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "name", name),
 				),
 			},
 			resource.TestStep{
 				Config: testAccCheckIBMCdToolchainToolPagerdutyConfig(toolchainID, nameUpdate),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_id", toolchainID),
-					resource.TestCheckResourceAttr("ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "name", nameUpdate),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "toolchain_id", toolchainID),
+					resource.TestCheckResourceAttr("ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty", "name", nameUpdate),
 				),
 			},
 			resource.TestStep{
-				ResourceName:      "ibm_cd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty",
+				ResourceName:      "ibmcd_toolchain_tool_pagerduty.cd_toolchain_tool_pagerduty",
 				ImportState:       true,
 				ImportStateVerify: true,
 			},
@@ -75,7 +75,7 @@ func TestAccIBMCdToolchainToolPagerdutyAllArgs(t *testing.T) {
 func testAccCheckIBMCdToolchainToolPagerdutyConfigBasic(toolchainID string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
+		resource "ibmcd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
 			toolchain_id = "%s"
 		}
 	`, toolchainID)
@@ -84,7 +84,7 @@ func testAccCheckIBMCdToolchainToolPagerdutyConfigBasic(toolchainID string) stri
 func testAccCheckIBMCdToolchainToolPagerdutyConfig(toolchainID string, name string) string {
 	return fmt.Sprintf(`
 
-		resource "ibm_cd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
+		resource "ibmcd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
 			toolchain_id = "%s"
 			name = "%s"
 			parameters {
@@ -140,7 +140,7 @@ func testAccCheckIBMCdToolchainToolPagerdutyDestroy(s *terraform.State) error {
 		return err
 	}
 	for _, rs := range s.RootModule().Resources {
-		if rs.Type != "ibm_cd_toolchain_tool_pagerduty" {
+		if rs.Type != "ibmcd_toolchain_tool_pagerduty" {
 			continue
 		}
 
