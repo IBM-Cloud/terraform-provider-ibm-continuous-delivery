@@ -75,6 +75,16 @@ func testAccCheckIBMCdToolchainToolCustomDataSourceConfigBasic(getToolByIDRespon
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
 			toolchain_id = "%s"
+			parameters {
+				type = "type"
+				lifecyclePhase = "THINK"
+				imageUrl = "imageUrl"
+				documentationUrl = "documentationUrl"
+				name = "name"
+				dashboard_url = "dashboard_url"
+				description = "description"
+				additional-properties = "additional-properties"
+			}
 		}
 
 		data "ibmcd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
@@ -88,7 +98,6 @@ func testAccCheckIBMCdToolchainToolCustomDataSourceConfig(getToolByIDResponseToo
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_custom" "cd_toolchain_tool_custom" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				type = "type"
 				lifecyclePhase = "THINK"
@@ -99,6 +108,7 @@ func testAccCheckIBMCdToolchainToolCustomDataSourceConfig(getToolByIDResponseToo
 				description = "description"
 				additional-properties = "additional-properties"
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_custom" "cd_toolchain_tool_custom" {

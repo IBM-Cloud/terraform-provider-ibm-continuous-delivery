@@ -75,20 +75,6 @@ func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfigBasic(getToolByIDR
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
 			toolchain_id = "%s"
-		}
-
-		data "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
-			toolchain_id = ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.toolchain_id
-			tool_id = "tool_id"
-		}
-	`, getToolByIDResponseToolchainID)
-}
-
-func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
-	return fmt.Sprintf(`
-		resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
-			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				dashboard_url = "dashboard_url"
@@ -102,6 +88,33 @@ func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(getToolByIDRespon
 				repository_url = "repository_url"
 				docker_config_json = "docker_config_json"
 			}
+		}
+
+		data "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
+			toolchain_id = ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.toolchain_id
+			tool_id = "tool_id"
+		}
+	`, getToolByIDResponseToolchainID)
+}
+
+func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
+	return fmt.Sprintf(`
+		resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
+			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				dashboard_url = "dashboard_url"
+				type = "npm"
+				user_id = "user_id"
+				token = "token"
+				release_url = "release_url"
+				mirror_url = "mirror_url"
+				snapshot_url = "snapshot_url"
+				repository_name = "repository_name"
+				repository_url = "repository_url"
+				docker_config_json = "docker_config_json"
+			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {

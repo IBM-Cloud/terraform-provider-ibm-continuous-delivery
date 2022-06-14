@@ -77,6 +77,13 @@ func testAccCheckIBMCdToolchainToolJenkinsConfigBasic(toolchainID string) string
 
 		resource "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				dashboard_url = "dashboard_url"
+				webhook_url = "webhook_url"
+				api_user_name = "api_user_name"
+				api_token = "api_token"
+			}
 		}
 	`, toolchainID)
 }
@@ -86,7 +93,6 @@ func testAccCheckIBMCdToolchainToolJenkinsConfig(toolchainID string, name string
 
 		resource "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				dashboard_url = "dashboard_url"
@@ -94,6 +100,7 @@ func testAccCheckIBMCdToolchainToolJenkinsConfig(toolchainID string, name string
 				api_user_name = "api_user_name"
 				api_token = "api_token"
 			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

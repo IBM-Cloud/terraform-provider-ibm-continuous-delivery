@@ -75,6 +75,15 @@ func testAccCheckIBMCdToolchainToolAppconfigDataSourceConfigBasic(getToolByIDRes
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_appconfig" "cd_toolchain_tool_appconfig" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				region = "region"
+				resource-group = "resource-group"
+				instance-name = "instance-name"
+				environment-name = "environment-name"
+				collection-name = "collection-name"
+				integration-status = "integration-status"
+			}
 		}
 
 		data "ibmcd_toolchain_tool_appconfig" "cd_toolchain_tool_appconfig" {
@@ -88,7 +97,6 @@ func testAccCheckIBMCdToolchainToolAppconfigDataSourceConfig(getToolByIDResponse
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_appconfig" "cd_toolchain_tool_appconfig" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				region = "region"
@@ -98,6 +106,7 @@ func testAccCheckIBMCdToolchainToolAppconfigDataSourceConfig(getToolByIDResponse
 				collection-name = "collection-name"
 				integration-status = "integration-status"
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_appconfig" "cd_toolchain_tool_appconfig" {

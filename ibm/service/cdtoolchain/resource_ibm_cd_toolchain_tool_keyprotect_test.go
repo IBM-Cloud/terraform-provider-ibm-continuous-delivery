@@ -77,6 +77,13 @@ func testAccCheckIBMCdToolchainToolKeyprotectConfigBasic(toolchainID string) str
 
 		resource "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				region = "region"
+				resource-group = "resource-group"
+				instance-name = "instance-name"
+				integration-status = "integration-status"
+			}
 		}
 	`, toolchainID)
 }
@@ -86,7 +93,6 @@ func testAccCheckIBMCdToolchainToolKeyprotectConfig(toolchainID string, name str
 
 		resource "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				region = "region"
@@ -94,6 +100,7 @@ func testAccCheckIBMCdToolchainToolKeyprotectConfig(toolchainID string, name str
 				instance-name = "instance-name"
 				integration-status = "integration-status"
 			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

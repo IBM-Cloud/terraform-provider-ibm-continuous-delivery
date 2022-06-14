@@ -50,10 +50,6 @@ func TestAccPreCheck(t *testing.T) {
 	if v := os.Getenv("IC_API_KEY"); v == "" {
 		t.Fatal("IC_API_KEY must be set for acceptance tests")
 	}
-}
-
-func TestAccPreCheckCd(t *testing.T) {
-	TestAccPreCheck(t)
 	if CdResourceGroupID == "" {
 		t.Fatal("IBM_CD_RESOURCE_GROUP_ID must be set for acceptance tests")
 	}

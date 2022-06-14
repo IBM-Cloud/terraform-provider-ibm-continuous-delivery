@@ -31,7 +31,7 @@ Review the argument reference that you can specify for your resource.
 
 * `name` - (Optional, String) Name of tool.
   * Constraints: The maximum length is `128` characters. The minimum length is `0` characters. The value must match regular expression `/^([^\\x00-\\x7F]|[a-zA-Z0-9-._ ])+$/`.
-* `parameters` - (Optional, List) Parameters to be used to create the tool.
+* `parameters` - (Required, List) Parameters to be used to create the tool.
 Nested scheme for **parameters**:
 	* `instance_name` - (Required, String) The name of your Key Protect instance. You should choose an entry from the list provided based on the selected region and resource group. e.g: Key Protect-01.
 	  * Constraints: The value must match regular expression `/\\S/`.

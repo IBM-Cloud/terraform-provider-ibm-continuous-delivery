@@ -34,7 +34,7 @@ Review the argument reference that you can specify for your resource.
 
 * `name` - (Optional, String) Name of tool.
   * Constraints: The maximum length is `128` characters. The minimum length is `0` characters. The value must match regular expression `/^([^\\x00-\\x7F]|[a-zA-Z0-9-._ ])+$/`.
-* `parameters` - (Optional, List) Parameters to be used to create the tool.
+* `parameters` - (Required, List) Parameters to be used to create the tool.
 Nested scheme for **parameters**:
 	* `api_key` - (Optional, String) Type your API access key. You can find or create this key on the Configuration/API Access section of the PagerDuty website. [PagerDuty Support article on how to get API Key](https://support.pagerduty.com/hc/en-us/articles/202829310-Generating-an-API-Key).
 	* `key_type` - (Required, String) Select whether to integrate at the account level with an API key or at the service level with an integration key.

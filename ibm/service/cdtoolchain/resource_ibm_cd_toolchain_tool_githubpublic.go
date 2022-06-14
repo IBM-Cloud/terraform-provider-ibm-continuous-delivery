@@ -33,16 +33,11 @@ func ResourceIBMCdToolchainToolGithubpublic() *schema.Resource {
 				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_githubpublic", "toolchain_id"),
 				Description:  "ID of the toolchain to bind tool to.",
 			},
-			"name": &schema.Schema{
-				Type:         schema.TypeString,
-				Optional:     true,
-				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_githubpublic", "name"),
-				Description:  "Name of tool.",
-			},
 			"parameters": &schema.Schema{
 				Type:        schema.TypeList,
+				MinItems:    1,
 				MaxItems:    1,
-				Optional:    true,
+				Required:    true,
 				Description: "Parameters to be used to create the tool.",
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
@@ -179,8 +174,9 @@ func ResourceIBMCdToolchainToolGithubpublic() *schema.Resource {
 			},
 			"initialization": &schema.Schema{
 				Type:     schema.TypeList,
+				MinItems: 1,
 				MaxItems: 1,
-				Optional: true,
+				Required: true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"legal": &schema.Schema{
@@ -220,6 +216,12 @@ func ResourceIBMCdToolchainToolGithubpublic() *schema.Resource {
 						},
 					},
 				},
+			},
+			"name": &schema.Schema{
+				Type:         schema.TypeString,
+				Optional:     true,
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_githubpublic", "name"),
+				Description:  "Name of tool.",
 			},
 			"resource_group_id": &schema.Schema{
 				Type:        schema.TypeString,
@@ -316,14 +318,10 @@ func ResourceIBMCdToolchainToolGithubpublicCreate(context context.Context, d *sc
 
 	createToolOptions.SetToolchainID(d.Get("toolchain_id").(string))
 	createToolOptions.SetToolTypeID("githubpublic")
+	parametersModel := GetParametersForCreate(d, ResourceIBMCdToolchainToolGithubpublic(), nil)
+	createToolOptions.SetParameters(parametersModel)
 	if _, ok := d.GetOk("name"); ok {
 		createToolOptions.SetName(d.Get("name").(string))
-	}
-	_, pok := d.GetOk("parameters")
-	_, iok := d.GetOk("initialization")
-	if pok || iok {
-		parametersModel := GetParametersForCreate(d, ResourceIBMCdToolchainToolGithubpublic(), nil)
-		createToolOptions.SetParameters(parametersModel)
 	}
 
 	postToolResponse, response, err := cdToolchainClient.CreateToolWithContext(context, createToolOptions)
@@ -366,14 +364,12 @@ func ResourceIBMCdToolchainToolGithubpublicRead(context context.Context, d *sche
 	if err = d.Set("toolchain_id", getToolByIDResponse.ToolchainID); err != nil {
 		return diag.FromErr(fmt.Errorf("Error setting toolchain_id: %s", err))
 	}
+	parametersMap := GetParametersFromRead(getToolByIDResponse.Parameters, ResourceIBMCdToolchainToolGithubpublic(), nil)
+	if err = d.Set("parameters", []map[string]interface{}{parametersMap}); err != nil {
+		return diag.FromErr(fmt.Errorf("Error setting parameters: %s", err))
+	}
 	if err = d.Set("name", getToolByIDResponse.Name); err != nil {
 		return diag.FromErr(fmt.Errorf("Error setting name: %s", err))
-	}
-	if getToolByIDResponse.Parameters != nil {
-		parametersMap := GetParametersFromRead(getToolByIDResponse.Parameters, ResourceIBMCdToolchainToolGithubpublic(), nil)
-		if err = d.Set("parameters", []map[string]interface{}{parametersMap}); err != nil {
-			return diag.FromErr(fmt.Errorf("Error setting parameters: %s", err))
-		}
 	}
 	if err = d.Set("resource_group_id", getToolByIDResponse.ResourceGroupID); err != nil {
 		return diag.FromErr(fmt.Errorf("Error setting resource_group_id: %s", err))
@@ -430,13 +426,13 @@ func ResourceIBMCdToolchainToolGithubpublicUpdate(context context.Context, d *sc
 		return diag.FromErr(fmt.Errorf("Cannot update resource property \"%s\" with the ForceNew annotation."+
 			" The resource must be re-created to update this property.", "toolchain_id"))
 	}
-	if d.HasChange("name") {
-		updateToolOptions.SetName(d.Get("name").(string))
-		hasChange = true
-	}
 	if d.HasChange("parameters") {
 		parameters := GetParametersForUpdate(d, ResourceIBMCdToolchainToolGithubpublic(), nil)
 		updateToolOptions.SetParameters(parameters)
+		hasChange = true
+	}
+	if d.HasChange("name") {
+		updateToolOptions.SetName(d.Get("name").(string))
 		hasChange = true
 	}
 

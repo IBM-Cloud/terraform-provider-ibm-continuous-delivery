@@ -77,16 +77,6 @@ func testAccCheckIBMCdToolchainToolGithubintegratedConfigBasic(toolchainID strin
 
 		resource "ibmcd_toolchain_tool_githubintegrated" "cd_toolchain_tool_githubintegrated" {
 			toolchain_id = "%s"
-		}
-	`, toolchainID)
-}
-
-func testAccCheckIBMCdToolchainToolGithubintegratedConfig(toolchainID string, name string) string {
-	return fmt.Sprintf(`
-
-		resource "ibmcd_toolchain_tool_githubintegrated" "cd_toolchain_tool_githubintegrated" {
-			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				authorized = "authorized"
 				git_id = "git_id"
@@ -116,6 +106,45 @@ func testAccCheckIBMCdToolchainToolGithubintegratedConfig(toolchainID string, na
 				type = "new"
 				private_repo = true
 			}
+		}
+	`, toolchainID)
+}
+
+func testAccCheckIBMCdToolchainToolGithubintegratedConfig(toolchainID string, name string) string {
+	return fmt.Sprintf(`
+
+		resource "ibmcd_toolchain_tool_githubintegrated" "cd_toolchain_tool_githubintegrated" {
+			toolchain_id = "%s"
+			parameters {
+				authorized = "authorized"
+				git_id = "git_id"
+				api_root_url = "api_root_url"
+				default_branch = "default_branch"
+				root_url = "root_url"
+				legal = true
+				owner_id = "owner_id"
+				repo_name = "repo_name"
+				repo_url = "repo_url"
+				source_repo_url = "source_repo_url"
+				token_url = "token_url"
+				type = "new"
+				private_repo = true
+				has_issues = true
+				enable_traceability = true
+				integration_owner = "integration_owner"
+				auth_type = "oauth"
+				api_token = "api_token"
+				auto_init = true
+			}
+			initialization {
+				legal = true
+				repo_name = "repo_name"
+				repo_url = "repo_url"
+				source_repo_url = "source_repo_url"
+				type = "new"
+				private_repo = true
+			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

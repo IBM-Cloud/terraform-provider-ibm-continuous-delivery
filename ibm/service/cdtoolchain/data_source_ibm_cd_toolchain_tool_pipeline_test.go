@@ -75,6 +75,11 @@ func testAccCheckIBMCdToolchainToolPipelineDataSourceConfigBasic(getToolByIDResp
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				type = "classic"
+				ui_pipeline = true
+			}
 		}
 
 		data "ibmcd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
@@ -88,12 +93,12 @@ func testAccCheckIBMCdToolchainToolPipelineDataSourceConfig(getToolByIDResponseT
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				type = "classic"
 				ui_pipeline = true
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {

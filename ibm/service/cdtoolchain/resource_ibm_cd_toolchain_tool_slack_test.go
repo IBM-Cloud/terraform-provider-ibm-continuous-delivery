@@ -77,16 +77,6 @@ func testAccCheckIBMCdToolchainToolSlackConfigBasic(toolchainID string) string {
 
 		resource "ibmcd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
 			toolchain_id = "%s"
-		}
-	`, toolchainID)
-}
-
-func testAccCheckIBMCdToolchainToolSlackConfig(toolchainID string, name string) string {
-	return fmt.Sprintf(`
-
-		resource "ibmcd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
-			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				api_token = "api_token"
 				channel_name = "channel_name"
@@ -97,6 +87,26 @@ func testAccCheckIBMCdToolchainToolSlackConfig(toolchainID string, name string) 
 				toolchain_bind = true
 				toolchain_unbind = true
 			}
+		}
+	`, toolchainID)
+}
+
+func testAccCheckIBMCdToolchainToolSlackConfig(toolchainID string, name string) string {
+	return fmt.Sprintf(`
+
+		resource "ibmcd_toolchain_tool_slack" "cd_toolchain_tool_slack" {
+			toolchain_id = "%s"
+			parameters {
+				api_token = "api_token"
+				channel_name = "channel_name"
+				team_url = "team_url"
+				pipeline_start = true
+				pipeline_success = true
+				pipeline_fail = true
+				toolchain_bind = true
+				toolchain_unbind = true
+			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

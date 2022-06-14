@@ -77,6 +77,11 @@ func testAccCheckIBMCdToolchainToolPrivateworkerConfigBasic(toolchainID string) 
 
 		resource "ibmcd_toolchain_tool_privateworker" "cd_toolchain_tool_privateworker" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				workerQueueCredentials = "workerQueueCredentials"
+				workerQueueIdentifier = "workerQueueIdentifier"
+			}
 		}
 	`, toolchainID)
 }
@@ -86,12 +91,12 @@ func testAccCheckIBMCdToolchainToolPrivateworkerConfig(toolchainID string, name 
 
 		resource "ibmcd_toolchain_tool_privateworker" "cd_toolchain_tool_privateworker" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				workerQueueCredentials = "workerQueueCredentials"
 				workerQueueIdentifier = "workerQueueIdentifier"
 			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

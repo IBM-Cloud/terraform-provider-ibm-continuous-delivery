@@ -75,6 +75,13 @@ func testAccCheckIBMCdToolchainToolSonarqubeDataSourceConfigBasic(getToolByIDRes
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				dashboard_url = "dashboard_url"
+				user_login = "user_login"
+				user_password = "user_password"
+				blind_connection = true
+			}
 		}
 
 		data "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
@@ -88,7 +95,6 @@ func testAccCheckIBMCdToolchainToolSonarqubeDataSourceConfig(getToolByIDResponse
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				dashboard_url = "dashboard_url"
@@ -96,6 +102,7 @@ func testAccCheckIBMCdToolchainToolSonarqubeDataSourceConfig(getToolByIDResponse
 				user_password = "user_password"
 				blind_connection = true
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_sonarqube" "cd_toolchain_tool_sonarqube" {

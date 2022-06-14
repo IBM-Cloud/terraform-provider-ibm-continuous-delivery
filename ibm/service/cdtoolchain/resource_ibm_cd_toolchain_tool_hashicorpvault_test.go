@@ -77,16 +77,6 @@ func testAccCheckIBMCdToolchainToolHashicorpvaultConfigBasic(toolchainID string)
 
 		resource "ibmcd_toolchain_tool_hashicorpvault" "cd_toolchain_tool_hashicorpvault" {
 			toolchain_id = "%s"
-		}
-	`, toolchainID)
-}
-
-func testAccCheckIBMCdToolchainToolHashicorpvaultConfig(toolchainID string, name string) string {
-	return fmt.Sprintf(`
-
-		resource "ibmcd_toolchain_tool_hashicorpvault" "cd_toolchain_tool_hashicorpvault" {
-			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				server_url = "server_url"
@@ -101,6 +91,30 @@ func testAccCheckIBMCdToolchainToolHashicorpvaultConfig(toolchainID string, name
 				username = "username"
 				password = "password"
 			}
+		}
+	`, toolchainID)
+}
+
+func testAccCheckIBMCdToolchainToolHashicorpvaultConfig(toolchainID string, name string) string {
+	return fmt.Sprintf(`
+
+		resource "ibmcd_toolchain_tool_hashicorpvault" "cd_toolchain_tool_hashicorpvault" {
+			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				server_url = "server_url"
+				authentication_method = "token"
+				token = "token"
+				role_id = "role_id"
+				secret_id = "secret_id"
+				dashboard_url = "dashboard_url"
+				path = "path"
+				secret_filter = "secret_filter"
+				default_secret = "default_secret"
+				username = "username"
+				password = "password"
+			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

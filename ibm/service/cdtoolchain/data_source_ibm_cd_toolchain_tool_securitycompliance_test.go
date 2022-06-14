@@ -75,6 +75,16 @@ func testAccCheckIBMCdToolchainToolSecuritycomplianceDataSourceConfigBasic(getTo
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				evidence_repo_name = "evidence_repo_name"
+				trigger_scan = "disabled"
+				location = "location"
+				evidence_namespace = "evidence_namespace"
+				api-key = "api-key"
+				scope = "scope"
+				profile = "profile"
+			}
 		}
 
 		data "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
@@ -88,7 +98,6 @@ func testAccCheckIBMCdToolchainToolSecuritycomplianceDataSourceConfig(getToolByI
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				evidence_repo_name = "evidence_repo_name"
@@ -99,6 +108,7 @@ func testAccCheckIBMCdToolchainToolSecuritycomplianceDataSourceConfig(getToolByI
 				scope = "scope"
 				profile = "profile"
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_securitycompliance" "cd_toolchain_tool_securitycompliance" {

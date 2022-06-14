@@ -75,6 +75,13 @@ func testAccCheckIBMCdToolchainToolSecretsmanagerDataSourceConfigBasic(getToolBy
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				region = "region"
+				resource-group = "resource-group"
+				instance-name = "instance-name"
+				integration-status = "integration-status"
+			}
 		}
 
 		data "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
@@ -88,7 +95,6 @@ func testAccCheckIBMCdToolchainToolSecretsmanagerDataSourceConfig(getToolByIDRes
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				region = "region"
@@ -96,6 +102,7 @@ func testAccCheckIBMCdToolchainToolSecretsmanagerDataSourceConfig(getToolByIDRes
 				instance-name = "instance-name"
 				integration-status = "integration-status"
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {

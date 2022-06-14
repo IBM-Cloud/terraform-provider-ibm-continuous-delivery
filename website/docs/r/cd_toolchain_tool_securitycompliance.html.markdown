@@ -34,7 +34,7 @@ Review the argument reference that you can specify for your resource.
 
 * `name` - (Optional, String) Name of tool.
   * Constraints: The maximum length is `128` characters. The minimum length is `0` characters. The value must match regular expression `/^([^\\x00-\\x7F]|[a-zA-Z0-9-._ ])+$/`.
-* `parameters` - (Optional, List) Parameters to be used to create the tool.
+* `parameters` - (Required, List) Parameters to be used to create the tool.
 Nested scheme for **parameters**:
 	* `api_key` - (Optional, String) The IBM Cloud API key is used to access the Security and Compliance API. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://cloud.ibm.com/iam#/apikeys by clicking **Create API key** (Each API key only can be viewed once).
 	  * Constraints: The value must match regular expression `/\\S/`.

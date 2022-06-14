@@ -51,7 +51,7 @@ resource "ibmcd_toolchain_tool_githubintegrated" "cd_toolchain_tool_githubintegr
 
 Review the argument reference that you can specify for your resource.
 
-* `initialization` - (Optional, List) 
+* `initialization` - (Required, List) 
 Nested scheme for **initialization**:
 	* `legal` - (Optional, Forces new resource, Boolean)
 	  * Constraints: The default value is `true`.
@@ -64,7 +64,7 @@ Nested scheme for **initialization**:
 	  * Constraints: Allowable values are: `new`, `fork`, `clone`, `link`.
 * `name` - (Optional, String) Name of tool.
   * Constraints: The maximum length is `128` characters. The minimum length is `0` characters. The value must match regular expression `/^([^\\x00-\\x7F]|[a-zA-Z0-9-._ ])+$/`.
-* `parameters` - (Optional, List) Parameters to be used to create the tool.
+* `parameters` - (Required, List) Parameters to be used to create the tool.
 Nested scheme for **parameters**:
 	* `api_root_url` - (Optional, String) e.g. https://github.ibm.com/api/v3.
 	* `api_token` - (Optional, String) Personal Access Token.

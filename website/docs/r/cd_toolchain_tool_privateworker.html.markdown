@@ -29,7 +29,7 @@ Review the argument reference that you can specify for your resource.
 
 * `name` - (Optional, String) Name of tool.
   * Constraints: The maximum length is `128` characters. The minimum length is `0` characters. The value must match regular expression `/^([^\\x00-\\x7F]|[a-zA-Z0-9-._ ])+$/`.
-* `parameters` - (Optional, List) Parameters to be used to create the tool.
+* `parameters` - (Required, List) Parameters to be used to create the tool.
 Nested scheme for **parameters**:
 	* `name` - (Required, String) Enter a name for this tool integration. For example, my-private-worker. This name is displayed on your toolchain.
 	* `worker_queue_credentials` - (Required, String) Use a secret from the secrets store, or create a service ID API key that is used by the private worker to authenticate access to the work queue.

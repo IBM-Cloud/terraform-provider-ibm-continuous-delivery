@@ -77,16 +77,6 @@ func testAccCheckIBMCdToolchainToolNexusConfigBasic(toolchainID string) string {
 
 		resource "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
 			toolchain_id = "%s"
-		}
-	`, toolchainID)
-}
-
-func testAccCheckIBMCdToolchainToolNexusConfig(toolchainID string, name string) string {
-	return fmt.Sprintf(`
-
-		resource "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
-			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				dashboard_url = "dashboard_url"
@@ -97,6 +87,26 @@ func testAccCheckIBMCdToolchainToolNexusConfig(toolchainID string, name string) 
 				mirror_url = "mirror_url"
 				snapshot_url = "snapshot_url"
 			}
+		}
+	`, toolchainID)
+}
+
+func testAccCheckIBMCdToolchainToolNexusConfig(toolchainID string, name string) string {
+	return fmt.Sprintf(`
+
+		resource "ibmcd_toolchain_tool_nexus" "cd_toolchain_tool_nexus" {
+			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				dashboard_url = "dashboard_url"
+				type = "npm"
+				user_id = "user_id"
+				token = "token"
+				release_url = "release_url"
+				mirror_url = "mirror_url"
+				snapshot_url = "snapshot_url"
+			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

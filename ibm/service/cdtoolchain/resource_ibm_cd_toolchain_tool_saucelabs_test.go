@@ -77,6 +77,10 @@ func testAccCheckIBMCdToolchainToolSaucelabsConfigBasic(toolchainID string) stri
 
 		resource "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
 			toolchain_id = "%s"
+			parameters {
+				username = "username"
+				key = "key"
+			}
 		}
 	`, toolchainID)
 }
@@ -86,11 +90,11 @@ func testAccCheckIBMCdToolchainToolSaucelabsConfig(toolchainID string, name stri
 
 		resource "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				username = "username"
 				key = "key"
 			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

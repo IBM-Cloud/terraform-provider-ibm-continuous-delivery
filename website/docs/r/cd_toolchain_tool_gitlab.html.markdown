@@ -51,7 +51,7 @@ resource "ibmcd_toolchain_tool_gitlab" "cd_toolchain_tool_gitlab" {
 
 Review the argument reference that you can specify for your resource.
 
-* `initialization` - (Optional, List) 
+* `initialization` - (Required, List) 
 Nested scheme for **initialization**:
 	* `private_repo` - (Optional, Forces new resource, Boolean) Select this check box to make this repository private.
 	  * Constraints: The default value is `true`.
@@ -62,7 +62,7 @@ Nested scheme for **initialization**:
 	  * Constraints: Allowable values are: `new`, `fork`, `clone`, `link`.
 * `name` - (Optional, String) Name of tool.
   * Constraints: The maximum length is `128` characters. The minimum length is `0` characters. The value must match regular expression `/^([^\\x00-\\x7F]|[a-zA-Z0-9-._ ])+$/`.
-* `parameters` - (Optional, List) Parameters to be used to create the tool.
+* `parameters` - (Required, List) Parameters to be used to create the tool.
 Nested scheme for **parameters**:
 	* `access_token` - (Optional, String)
 	* `api_root_url` - (Optional, String) e.g. https://gitlab.example.com/api/v4.

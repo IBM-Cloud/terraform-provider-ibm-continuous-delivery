@@ -75,6 +75,11 @@ func testAccCheckIBMCdToolchainToolPrivateworkerDataSourceConfigBasic(getToolByI
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_privateworker" "cd_toolchain_tool_privateworker" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				workerQueueCredentials = "workerQueueCredentials"
+				workerQueueIdentifier = "workerQueueIdentifier"
+			}
 		}
 
 		data "ibmcd_toolchain_tool_privateworker" "cd_toolchain_tool_privateworker" {
@@ -88,12 +93,12 @@ func testAccCheckIBMCdToolchainToolPrivateworkerDataSourceConfig(getToolByIDResp
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_privateworker" "cd_toolchain_tool_privateworker" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				workerQueueCredentials = "workerQueueCredentials"
 				workerQueueIdentifier = "workerQueueIdentifier"
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_privateworker" "cd_toolchain_tool_privateworker" {

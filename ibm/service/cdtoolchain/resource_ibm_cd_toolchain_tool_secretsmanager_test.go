@@ -77,6 +77,13 @@ func testAccCheckIBMCdToolchainToolSecretsmanagerConfigBasic(toolchainID string)
 
 		resource "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				region = "region"
+				resource-group = "resource-group"
+				instance-name = "instance-name"
+				integration-status = "integration-status"
+			}
 		}
 	`, toolchainID)
 }
@@ -86,7 +93,6 @@ func testAccCheckIBMCdToolchainToolSecretsmanagerConfig(toolchainID string, name
 
 		resource "ibmcd_toolchain_tool_secretsmanager" "cd_toolchain_tool_secretsmanager" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				region = "region"
@@ -94,6 +100,7 @@ func testAccCheckIBMCdToolchainToolSecretsmanagerConfig(toolchainID string, name
 				instance-name = "instance-name"
 				integration-status = "integration-status"
 			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

@@ -77,16 +77,6 @@ func testAccCheckIBMCdToolchainToolJiraConfigBasic(toolchainID string) string {
 
 		resource "ibmcd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
 			toolchain_id = "%s"
-		}
-	`, toolchainID)
-}
-
-func testAccCheckIBMCdToolchainToolJiraConfig(toolchainID string, name string) string {
-	return fmt.Sprintf(`
-
-		resource "ibmcd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
-			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				type = "new"
 				project_key = "project_key"
@@ -97,6 +87,26 @@ func testAccCheckIBMCdToolchainToolJiraConfig(toolchainID string, name string) s
 				password = "password"
 				enable_traceability = true
 			}
+		}
+	`, toolchainID)
+}
+
+func testAccCheckIBMCdToolchainToolJiraConfig(toolchainID string, name string) string {
+	return fmt.Sprintf(`
+
+		resource "ibmcd_toolchain_tool_jira" "cd_toolchain_tool_jira" {
+			toolchain_id = "%s"
+			parameters {
+				type = "new"
+				project_key = "project_key"
+				project_name = "project_name"
+				project_admin = "project_admin"
+				api_url = "api_url"
+				username = "username"
+				password = "password"
+				enable_traceability = true
+			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

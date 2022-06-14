@@ -75,6 +75,10 @@ func testAccCheckIBMCdToolchainToolSaucelabsDataSourceConfigBasic(getToolByIDRes
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
 			toolchain_id = "%s"
+			parameters {
+				username = "username"
+				key = "key"
+			}
 		}
 
 		data "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
@@ -88,11 +92,11 @@ func testAccCheckIBMCdToolchainToolSaucelabsDataSourceConfig(getToolByIDResponse
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				username = "username"
 				key = "key"
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_saucelabs" "cd_toolchain_tool_saucelabs" {

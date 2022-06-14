@@ -77,6 +77,11 @@ func testAccCheckIBMCdToolchainToolPipelineConfigBasic(toolchainID string) strin
 
 		resource "ibmcd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				type = "classic"
+				ui_pipeline = true
+			}
 		}
 	`, toolchainID)
 }
@@ -86,12 +91,12 @@ func testAccCheckIBMCdToolchainToolPipelineConfig(toolchainID string, name strin
 
 		resource "ibmcd_toolchain_tool_pipeline" "cd_toolchain_tool_pipeline" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				type = "classic"
 				ui_pipeline = true
 			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

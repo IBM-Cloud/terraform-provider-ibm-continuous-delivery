@@ -75,6 +75,15 @@ func testAccCheckIBMCdToolchainToolRationalteamconcertDataSourceConfigBasic(getT
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
 			toolchain_id = "%s"
+			parameters {
+				server_url = "server_url"
+				user_id = "user_id"
+				password = "password"
+				type = "new"
+				project_area = "project_area"
+				process_template = "process_template"
+				enable_traceability = true
+			}
 		}
 
 		data "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
@@ -88,7 +97,6 @@ func testAccCheckIBMCdToolchainToolRationalteamconcertDataSourceConfig(getToolBy
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				server_url = "server_url"
 				user_id = "user_id"
@@ -98,6 +106,7 @@ func testAccCheckIBMCdToolchainToolRationalteamconcertDataSourceConfig(getToolBy
 				process_template = "process_template"
 				enable_traceability = true
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_rationalteamconcert" "cd_toolchain_tool_rationalteamconcert" {

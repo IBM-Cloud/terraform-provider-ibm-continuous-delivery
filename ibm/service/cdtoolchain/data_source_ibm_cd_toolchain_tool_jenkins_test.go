@@ -75,6 +75,13 @@ func testAccCheckIBMCdToolchainToolJenkinsDataSourceConfigBasic(getToolByIDRespo
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				dashboard_url = "dashboard_url"
+				webhook_url = "webhook_url"
+				api_user_name = "api_user_name"
+				api_token = "api_token"
+			}
 		}
 
 		data "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
@@ -88,7 +95,6 @@ func testAccCheckIBMCdToolchainToolJenkinsDataSourceConfig(getToolByIDResponseTo
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				dashboard_url = "dashboard_url"
@@ -96,6 +102,7 @@ func testAccCheckIBMCdToolchainToolJenkinsDataSourceConfig(getToolByIDResponseTo
 				api_user_name = "api_user_name"
 				api_token = "api_token"
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_jenkins" "cd_toolchain_tool_jenkins" {

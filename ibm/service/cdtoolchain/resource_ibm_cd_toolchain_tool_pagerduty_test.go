@@ -77,16 +77,6 @@ func testAccCheckIBMCdToolchainToolPagerdutyConfigBasic(toolchainID string) stri
 
 		resource "ibmcd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
 			toolchain_id = "%s"
-		}
-	`, toolchainID)
-}
-
-func testAccCheckIBMCdToolchainToolPagerdutyConfig(toolchainID string, name string) string {
-	return fmt.Sprintf(`
-
-		resource "ibmcd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
-			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				key_type = "api"
 				api_key = "api_key"
@@ -97,6 +87,26 @@ func testAccCheckIBMCdToolchainToolPagerdutyConfig(toolchainID string, name stri
 				service_key = "service_key"
 				service_id = "service_id"
 			}
+		}
+	`, toolchainID)
+}
+
+func testAccCheckIBMCdToolchainToolPagerdutyConfig(toolchainID string, name string) string {
+	return fmt.Sprintf(`
+
+		resource "ibmcd_toolchain_tool_pagerduty" "cd_toolchain_tool_pagerduty" {
+			toolchain_id = "%s"
+			parameters {
+				key_type = "api"
+				api_key = "api_key"
+				service_name = "service_name"
+				user_email = "user_email"
+				user_phone = "user_phone"
+				service_url = "service_url"
+				service_key = "service_key"
+				service_id = "service_id"
+			}
+			name = "%s"
 		}
 	`, toolchainID, name)
 }

@@ -75,6 +75,13 @@ func testAccCheckIBMCdToolchainToolKeyprotectDataSourceConfigBasic(getToolByIDRe
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
 			toolchain_id = "%s"
+			parameters {
+				name = "name"
+				region = "region"
+				resource-group = "resource-group"
+				instance-name = "instance-name"
+				integration-status = "integration-status"
+			}
 		}
 
 		data "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
@@ -88,7 +95,6 @@ func testAccCheckIBMCdToolchainToolKeyprotectDataSourceConfig(getToolByIDRespons
 	return fmt.Sprintf(`
 		resource "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {
 			toolchain_id = "%s"
-			name = "%s"
 			parameters {
 				name = "name"
 				region = "region"
@@ -96,6 +102,7 @@ func testAccCheckIBMCdToolchainToolKeyprotectDataSourceConfig(getToolByIDRespons
 				instance-name = "instance-name"
 				integration-status = "integration-status"
 			}
+			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_keyprotect" "cd_toolchain_tool_keyprotect" {

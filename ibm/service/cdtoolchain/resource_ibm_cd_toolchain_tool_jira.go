@@ -33,16 +33,11 @@ func ResourceIBMCdToolchainToolJira() *schema.Resource {
 				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_jira", "toolchain_id"),
 				Description:  "ID of the toolchain to bind tool to.",
 			},
-			"name": &schema.Schema{
-				Type:         schema.TypeString,
-				Optional:     true,
-				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_jira", "name"),
-				Description:  "Name of tool.",
-			},
 			"parameters": &schema.Schema{
 				Type:        schema.TypeList,
+				MinItems:    1,
 				MaxItems:    1,
-				Optional:    true,
+				Required:    true,
 				Description: "Parameters to be used to create the tool.",
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
@@ -87,6 +82,12 @@ func ResourceIBMCdToolchainToolJira() *schema.Resource {
 						},
 					},
 				},
+			},
+			"name": &schema.Schema{
+				Type:         schema.TypeString,
+				Optional:     true,
+				ValidateFunc: validate.InvokeValidator("ibmcd_toolchain_tool_jira", "name"),
+				Description:  "Name of tool.",
 			},
 			"resource_group_id": &schema.Schema{
 				Type:        schema.TypeString,
@@ -183,12 +184,10 @@ func ResourceIBMCdToolchainToolJiraCreate(context context.Context, d *schema.Res
 
 	createToolOptions.SetToolchainID(d.Get("toolchain_id").(string))
 	createToolOptions.SetToolTypeID("jira")
+	parametersModel := GetParametersForCreate(d, ResourceIBMCdToolchainToolJira(), nil)
+	createToolOptions.SetParameters(parametersModel)
 	if _, ok := d.GetOk("name"); ok {
 		createToolOptions.SetName(d.Get("name").(string))
-	}
-	if _, ok := d.GetOk("parameters"); ok {
-		parametersModel := GetParametersForCreate(d, ResourceIBMCdToolchainToolJira(), nil)
-		createToolOptions.SetParameters(parametersModel)
 	}
 
 	postToolResponse, response, err := cdToolchainClient.CreateToolWithContext(context, createToolOptions)
@@ -231,14 +230,12 @@ func ResourceIBMCdToolchainToolJiraRead(context context.Context, d *schema.Resou
 	if err = d.Set("toolchain_id", getToolByIDResponse.ToolchainID); err != nil {
 		return diag.FromErr(fmt.Errorf("Error setting toolchain_id: %s", err))
 	}
+	parametersMap := GetParametersFromRead(getToolByIDResponse.Parameters, ResourceIBMCdToolchainToolJira(), nil)
+	if err = d.Set("parameters", []map[string]interface{}{parametersMap}); err != nil {
+		return diag.FromErr(fmt.Errorf("Error setting parameters: %s", err))
+	}
 	if err = d.Set("name", getToolByIDResponse.Name); err != nil {
 		return diag.FromErr(fmt.Errorf("Error setting name: %s", err))
-	}
-	if getToolByIDResponse.Parameters != nil {
-		parametersMap := GetParametersFromRead(getToolByIDResponse.Parameters, ResourceIBMCdToolchainToolJira(), nil)
-		if err = d.Set("parameters", []map[string]interface{}{parametersMap}); err != nil {
-			return diag.FromErr(fmt.Errorf("Error setting parameters: %s", err))
-		}
 	}
 	if err = d.Set("resource_group_id", getToolByIDResponse.ResourceGroupID); err != nil {
 		return diag.FromErr(fmt.Errorf("Error setting resource_group_id: %s", err))
@@ -295,13 +292,13 @@ func ResourceIBMCdToolchainToolJiraUpdate(context context.Context, d *schema.Res
 		return diag.FromErr(fmt.Errorf("Cannot update resource property \"%s\" with the ForceNew annotation."+
 			" The resource must be re-created to update this property.", "toolchain_id"))
 	}
-	if d.HasChange("name") {
-		updateToolOptions.SetName(d.Get("name").(string))
-		hasChange = true
-	}
 	if d.HasChange("parameters") {
 		parameters := GetParametersForUpdate(d, ResourceIBMCdToolchainToolJira(), nil)
 		updateToolOptions.SetParameters(parameters)
+		hasChange = true
+	}
+	if d.HasChange("name") {
+		updateToolOptions.SetName(d.Get("name").(string))
 		hasChange = true
 	}
 
