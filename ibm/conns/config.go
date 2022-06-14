@@ -123,7 +123,6 @@ type Session struct {
 type ClientSession interface {
 	BluemixSession() (*bxsession.Session, error)
 	BluemixUserDetails() (*UserConfig, error)
-	FunctionClient() (*whisk.Client, error)
 	CdToolchainV2() (*cdtoolchainv2.CdToolchainV2, error)
 	CdTektonPipelineV2() (*cdtektonpipelinev2.CdTektonPipelineV2, error)
 }
@@ -156,11 +155,6 @@ func (sess clientSession) BluemixSession() (*bxsession.Session, error) {
 // BluemixUserDetails ...
 func (sess clientSession) BluemixUserDetails() (*UserConfig, error) {
 	return sess.bmxUserDetails, sess.bmxUserFetchErr
-}
-
-// FunctionClient ...
-func (sess clientSession) FunctionClient() (*whisk.Client, error) {
-	return sess.functionClient, sess.functionConfigErr
 }
 
 var cloudEndpoint = "cloud.ibm.com"
@@ -255,8 +249,6 @@ func (c *Config) ClientSession() (interface{}, error) {
 		sess.SoftLayerSession.IAMToken = sess.BluemixSession.Config.IAMAccessToken
 		sess.SoftLayerSession.IAMRefreshToken = sess.BluemixSession.Config.IAMRefreshToken
 	}
-
-	session.functionClient, session.functionConfigErr = FunctionClient(sess.BluemixSession.Config)
 
 	BluemixRegion = sess.BluemixSession.Config.Region
 	var fileMap map[string]interface{}
