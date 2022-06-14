@@ -28,7 +28,6 @@ func TestAccIBMCdToolchainDataSourceBasic(t *testing.T) {
 					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain.cd_toolchain", "toolchain_id"),
 					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain.cd_toolchain", "id"),
 					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain.cd_toolchain", "name"),
-					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain.cd_toolchain", "description"),
 					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain.cd_toolchain", "account_id"),
 					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain.cd_toolchain", "location"),
 					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain.cd_toolchain", "resource_group_id"),
