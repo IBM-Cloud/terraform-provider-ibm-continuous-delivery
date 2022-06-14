@@ -88,7 +88,6 @@ func testAccCheckIBMCdToolchainToolArtifactoryConfigBasic(toolchainID string) st
 				snapshot_url = "snapshot_url"
 				repository_name = "repository_name"
 				repository_url = "repository_url"
-				docker_config_json = "docker_config_json"
 			}
 		}
 	`, toolchainID)
@@ -110,7 +109,6 @@ func testAccCheckIBMCdToolchainToolArtifactoryConfig(toolchainID string, name st
 				snapshot_url = "snapshot_url"
 				repository_name = "repository_name"
 				repository_url = "repository_url"
-				docker_config_json = "docker_config_json"
 			}
 			name = "%s"
 		}

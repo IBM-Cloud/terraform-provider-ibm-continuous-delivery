@@ -14,14 +14,15 @@ import (
 )
 
 func TestAccIBMCdToolchainToolArtifactoryDataSourceBasic(t *testing.T) {
-	getToolByIDResponseToolchainID := fmt.Sprintf("tf_toolchain_id_%d", acctest.RandIntRange(10, 100))
+	tcName := fmt.Sprintf("tf_name_%d", acctest.RandIntRange(10, 100))
+	rgID := acc.CdResourceGroupID
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:  func() { acc.TestAccPreCheck(t) },
 		Providers: acc.TestAccProviders,
 		Steps: []resource.TestStep{
 			resource.TestStep{
-				Config: testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfigBasic(getToolByIDResponseToolchainID),
+				Config: testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfigBasic(tcName, rgID),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "id"),
 					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id"),
@@ -42,7 +43,8 @@ func TestAccIBMCdToolchainToolArtifactoryDataSourceBasic(t *testing.T) {
 }
 
 func TestAccIBMCdToolchainToolArtifactoryDataSourceAllArgs(t *testing.T) {
-	getToolByIDResponseToolchainID := fmt.Sprintf("tf_toolchain_id_%d", acctest.RandIntRange(10, 100))
+	tcName := fmt.Sprintf("tf_name_%d", acctest.RandIntRange(10, 100))
+	rgID := acc.CdResourceGroupID
 	getToolByIDResponseName := fmt.Sprintf("tf_name_%d", acctest.RandIntRange(10, 100))
 
 	resource.Test(t, resource.TestCase{
@@ -50,7 +52,7 @@ func TestAccIBMCdToolchainToolArtifactoryDataSourceAllArgs(t *testing.T) {
 		Providers: acc.TestAccProviders,
 		Steps: []resource.TestStep{
 			resource.TestStep{
-				Config: testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(getToolByIDResponseToolchainID, getToolByIDResponseName),
+				Config: testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(tcName, rgID, getToolByIDResponseName),
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "id"),
 					resource.TestCheckResourceAttrSet("data.ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory", "toolchain_id"),
@@ -71,10 +73,15 @@ func TestAccIBMCdToolchainToolArtifactoryDataSourceAllArgs(t *testing.T) {
 	})
 }
 
-func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfigBasic(getToolByIDResponseToolchainID string) string {
+func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfigBasic(tcName string, rgID string) string {
 	return fmt.Sprintf(`
+		resource "ibmcd_toolchain" "cd_toolchain" {
+			name = "%s"
+			resource_group_id = "%s"
+		}
+
 		resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
-			toolchain_id = "%s"
+			toolchain_id = ibmcd_toolchain.cd_toolchain.id
 			parameters {
 				name = "name"
 				dashboard_url = "dashboard_url"
@@ -86,21 +93,25 @@ func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfigBasic(getToolByIDR
 				snapshot_url = "snapshot_url"
 				repository_name = "repository_name"
 				repository_url = "repository_url"
-				docker_config_json = "docker_config_json"
 			}
 		}
 
 		data "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
 			toolchain_id = ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.toolchain_id
-			tool_id = "tool_id"
+			tool_id = ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.tool_id
 		}
-	`, getToolByIDResponseToolchainID)
+	`, tcName, rgID)
 }
 
-func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(getToolByIDResponseToolchainID string, getToolByIDResponseName string) string {
+func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(tcName string, rgID string, getToolByIDResponseName string) string {
 	return fmt.Sprintf(`
+		resource "ibmcd_toolchain" "cd_toolchain" {
+			name = "%s"
+			resource_group_id = "%s"
+		}
+
 		resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
-			toolchain_id = "%s"
+			toolchain_id = ibmcd_toolchain.cd_toolchain.id
 			parameters {
 				name = "name"
 				dashboard_url = "dashboard_url"
@@ -112,14 +123,13 @@ func testAccCheckIBMCdToolchainToolArtifactoryDataSourceConfig(getToolByIDRespon
 				snapshot_url = "snapshot_url"
 				repository_name = "repository_name"
 				repository_url = "repository_url"
-				docker_config_json = "docker_config_json"
 			}
 			name = "%s"
 		}
 
 		data "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
 			toolchain_id = ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.toolchain_id
-			tool_id = "tool_id"
+			tool_id = ibmcd_toolchain_tool_artifactory.cd_toolchain_tool_artifactory.tool_id
 		}
-	`, getToolByIDResponseToolchainID, getToolByIDResponseName)
+	`, tcName, rgID, getToolByIDResponseName)
 }

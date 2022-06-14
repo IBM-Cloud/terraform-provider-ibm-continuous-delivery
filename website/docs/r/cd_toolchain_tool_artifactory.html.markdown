@@ -25,7 +25,6 @@ resource "ibmcd_toolchain_tool_artifactory" "cd_toolchain_tool_artifactory" {
 		snapshot_url = "snapshot_url"
 		repository_name = "repository_name"
 		repository_url = "repository_url"
-		docker_config_json = "docker_config_json"
   }
   toolchain_id = "toolchain_id"
 }
