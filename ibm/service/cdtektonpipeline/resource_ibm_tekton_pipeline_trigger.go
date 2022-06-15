@@ -43,23 +43,23 @@ func ResourceIBMTektonPipelineTrigger() *schema.Resource {
 			"trigger": &schema.Schema{
 				Type:        schema.TypeList,
 				MaxItems:    1,
-				Optional:    true,
+				Required:    true,
 				Description: "Tekton pipeline trigger object.",
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"name": &schema.Schema{
 							Type:        schema.TypeString,
-							Optional:    true,
+							Required:    true,
 							Description: "name of the duplicated trigger.",
 						},
 						"type": &schema.Schema{
 							Type:        schema.TypeString,
-							Optional:    true,
+							Required:    true,
 							Description: "Trigger type.",
 						},
 						"event_listener": &schema.Schema{
 							Type:        schema.TypeString,
-							Optional:    true,
+							Required:    true,
 							Description: "Event listener name.",
 						},
 						"id": &schema.Schema{
@@ -130,7 +130,7 @@ func ResourceIBMTektonPipelineTrigger() *schema.Resource {
 								Schema: map[string]*schema.Schema{
 									"url": &schema.Schema{
 										Type:        schema.TypeString,
-										Optional:    true,
+										Required:    true,
 										Description: "Needed only for git trigger type. Repo URL that listening to.",
 									},
 									"branch": &schema.Schema{
@@ -208,7 +208,7 @@ func ResourceIBMTektonPipelineTrigger() *schema.Resource {
 								Schema: map[string]*schema.Schema{
 									"type": &schema.Schema{
 										Type:        schema.TypeString,
-										Optional:    true,
+										Required:    true,
 										Description: "Secret type.",
 									},
 									"value": &schema.Schema{

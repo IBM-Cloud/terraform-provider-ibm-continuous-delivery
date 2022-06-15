@@ -48,7 +48,7 @@ func ResourceIBMTektonPipelineTriggerProperty() *schema.Resource {
 			},
 			"name": &schema.Schema{
 				Type:         schema.TypeString,
-				Optional:     true,
+				Required:     true,
 				ValidateFunc: validate.InvokeValidator("ibmcd_tekton_pipeline_trigger_property", "name"),
 				Description:  "Property name.",
 			},
@@ -91,7 +91,7 @@ func ResourceIBMTektonPipelineTriggerProperty() *schema.Resource {
 			},
 			"type": &schema.Schema{
 				Type:         schema.TypeString,
-				Optional:     true,
+				Required:     true,
 				ValidateFunc: validate.InvokeValidator("ibmcd_tekton_pipeline_trigger_property", "type"),
 				Description:  "Property type.",
 			},
@@ -130,7 +130,7 @@ func ResourceIBMTektonPipelineTriggerPropertyValidator() *validate.ResourceValid
 			Identifier:                 "name",
 			ValidateFunctionIdentifier: validate.ValidateRegexpLen,
 			Type:                       validate.TypeString,
-			Optional:                   true,
+			Required:                   true,
 			Regexp:                     `^[-0-9a-zA-Z_.]{1,234}$`,
 			MinValueLength:             1,
 			MaxValueLength:             253,
@@ -157,7 +157,7 @@ func ResourceIBMTektonPipelineTriggerPropertyValidator() *validate.ResourceValid
 			Identifier:                 "type",
 			ValidateFunctionIdentifier: validate.ValidateAllowedStringValue,
 			Type:                       validate.TypeString,
-			Optional:                   true,
+			Required:                   true,
 			AllowedValues:              "APPCONFIG, INTEGRATION, SECURE, SINGLE_SELECT, TEXT",
 		},
 		validate.ValidateSchema{
